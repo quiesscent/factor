@@ -5,5 +5,5 @@ from . models import Farmers
 class FarmersSerializer(serializers.ModelSerializer):
     class  Meta:
         model=Farmers
-        field= '__all__'
+        fields='__all__'
       
