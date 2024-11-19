@@ -5,7 +5,7 @@ from rest_framework import viewsets
 
 # Create your views here.
 
-class StudentView(viewsets.ModelViewSet):
+class FarmersView(viewsets.ModelViewSet):
     queryset=Farmers.objects.all()
     serializer_class= FarmersSerializer
     

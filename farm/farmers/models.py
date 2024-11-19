@@ -2,9 +2,10 @@ from django.db import models
 
 # Create your models here.
 class Farmers(models.Model):
-    name=models.CharField( max_length=50)
+    name=models.CharField( max_length=100)
     email=models.EmailField()
-    username=models.CharField(max_length=50)
+    username=models.CharField(max_length=100)
     password=models.CharField( max_length=50)
     phone=models.IntegerField()
+    profession = models.CharField(max_length=100, null=True)
     image=models.ImageField( upload_to='images/')
