@@ -23,33 +23,29 @@
       </nav>
     </div><!-- End Page Title -->
 
+    <div>
+      <a href="{% url "farmers:createTasksPage" %}" class="btn create-button">Create task</a>
+    </div>
+
     <section class="section">
       <div class="row">
-        <div class="col-lg-12">
 
+        <div class="col-lg-12">
           <div class="card">
             <div class="card-body">
-              <h5 class="card-title">Tooltips Examples</h5>
-              <p>Hover over the buttons below to see the four tooltips directions: top, right, bottom, and left. </p>
-
-              <!-- Tooltips Examples -->
-              <button type="button" class="btn btn-secondary" data-bs-toggle="tooltip" data-bs-placement="top" title="Tooltip on top">
-                Tooltip on top
-              </button>
-              <button type="button" class="btn btn-secondary" data-bs-toggle="tooltip" data-bs-placement="right" title="Tooltip on right">
-                Tooltip on right
-              </button>
-              <button type="button" class="btn btn-secondary" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Tooltip on bottom">
-                Tooltip on bottom
-              </button>
-              <button type="button" class="btn btn-secondary" data-bs-toggle="tooltip" data-bs-placement="left" title="Tooltip on left">
-                Tooltip on left
-              </button>
-              <!-- End Tooltips Examples -->
+              <h5 class="card-title text-center">{worker name}</h5>
+              
+              <div class="tasks-align">
+              <div>
+              <span class="ms-4 me-4">{task to be done}</span>
+              </div>
+                <div>
+              <span class="ms-4 me-4">{task days}</span>
+                </div>
+              </div>
 
             </div>
           </div>
-
         </div>
 
       </div>

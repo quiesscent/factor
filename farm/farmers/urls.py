@@ -8,5 +8,6 @@ urlpatterns = [
     path("home/", views.index, name="home"),
      path("tasksPage/", views.tasksPage, name="tasksPage"),
        path("workersPage/", views.workersPage, name="workersPage"),
-       path("createWorkersPage/", views.createWorkersPage, name="createWorkersPage")
+       path("createWorkersPage/", views.createWorkersPage, name="createWorkersPage"),
+         path("createTasksPage/", views.createTasksPage, name="createTasksPage")
 ]

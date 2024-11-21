@@ -26,6 +26,9 @@ def workersPage(request):
 def createWorkersPage(request):
     return render(request,'create-workers.html')
 
+def createTasksPage(request):
+    return render(request,'create-tasks.html')
+
 
 
 

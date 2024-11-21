@@ -6,6 +6,27 @@
 
   <main id="main" class="main">
 
+<div class="row ">
+  <div class="col-sm-6 create-forms">
+    <form action="", method="post" enctype="multipart/form-data">
+     {% csrf_token %}
+
+     <input name="name" type="text"  class="form-control mt-2 mb-2 btn btn-outline-success"  placeholder="Name" required>
+     <br/>
+     <input name="email" type="email"  class="form-control mt-2 mb-2 btn btn-outline-success"  placeholder="Email"required>
+     <br/>
+     <input name="phone"  type="number" class="form-control mt-2 mb-2 btn btn-outline-success"  placeholder="Phone number"required>
+     <br/>
+     <input name="age" type="number" class="form-control mt-2 mb-2 btn btn-outline-success"    placeholder="Age" required>
+     <br/>
+     <input name="image" type="file"  class="form-control mt-2 mb-2 btn btn-outline-success" required>
+     <br/>
+     <input type="submit" class="form-control btn btn-success btn-small"    value="save" >
+   
+
+    </form>
+  </div>
+  </div>
 
   </main><!-- End #main -->
 
