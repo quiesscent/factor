@@ -1,7 +1,6 @@
 from django.shortcuts import render
 from . models import Farmers
-from . serializers import FarmersSerializer
-from rest_framework import viewsets
+
 
 # Create your views here.
 def login(request):
@@ -23,7 +22,11 @@ def tasksPage(request):
 def workersPage(request):
     return render(request,'workers-page.html')
 
-class FarmersView(viewsets.ModelViewSet):
-    queryset=Farmers.objects.all()
-    serializer_class= FarmersSerializer
+
+def createWorkersPage(request):
+    return render(request,'create-workers.html')
+
+
+
+
     

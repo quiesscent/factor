@@ -21,15 +21,11 @@ from django.urls import path,include
 from django.conf.urls.static import static
 from django.conf import settings
 
-from rest_framework import routers
-from farmers.views import FarmersView
 
-router=routers.DefaultRouter()
-router.register('',FarmersView,basename='farmers')
+
 
 urlpatterns = [
     path("admin/", admin.site.urls),
-    path('api/',include(router.urls)),
     path('', include('farmers.urls'))
     
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
