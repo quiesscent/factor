@@ -610,6 +610,7 @@ h6 {
 
 .sidebar-nav .nav-item {
   margin-bottom: 5px;
+  width: 100%;
 }
 
 .sidebar-nav .nav-heading {
@@ -620,40 +621,31 @@ h6 {
   margin: 10px 0 5px 15px;
 }
 
-.sidebar-nav .nav-link {
+
+
+.sidebar-footer {
+  position: absolute;
+  bottom: 20px; /* Adjust to your spacing preference */
+  left: 0;
+  width: 60%;
+  margin-left: 5px;
+}
+
+.sidebar-footer .nav-item {
+  margin-bottom: 3px; /* Space between footer items */
+}
+
+.sidebar-footer .nav-link {
   display: flex;
   align-items: center;
-  font-size: 15px;
-  font-weight: 600;
-  color: #4154f1;
-  transition: 0.3;
-  background: #f6f9ff;
-  padding: 10px 15px;
-  border-radius: 4px;
-}
-
-.sidebar-nav .nav-link i {
-  font-size: 16px;
-  margin-right: 10px;
-  color: #4154f1;
-}
-
-.sidebar-nav .nav-link.collapsed {
-  color: #012970;
-  background: #fff;
-}
-
-.sidebar-nav .nav-link.collapsed i {
-  color: #899bbd;
-}
-
-.sidebar-nav .nav-link:hover {
+  padding: 10px;
   color: var(--default-color);
-  background: var(--primary-color);
 }
 
-.sidebar-nav .nav-link:hover i {
+.sidebar-footer .nav-link:hover {
+  background-color: var(--primary-color); /* Match your design */
   color: var(--default-color);
+  border-radius: 5px;
 }
 
 .sidebar-nav .nav-link .bi-chevron-down {
@@ -1080,3 +1072,38 @@ h6 {
 # Personal css
 --------------------------------------------------------------*/
 
+   /*--------------------------------------------------------------
+    # Login and signup 
+    --------------------------------------------------------------*/
+    .login-btn{
+      background-color: var(--primary-color);
+      color: var(--default-color);
+    }
+
+
+    .create-button {
+      color: var(--default-color);
+      background-color: var(--primary-color);
+      padding: 5px;
+      text-decoration: none;
+      margin-top:2px;
+      margin-bottom:6px;
+     
+    }
+    
+    .create-button:hover {
+      color: var(--primary-color);
+      background-color: var(--default-color);
+      text-decoration: none;
+      border:1px solid var(--primary-color);
+    }
+    
+    .create-forms{
+      display: flex;
+      justify-content: space-between;
+    }
+    
+    .tasks-align{
+      display: flex;
+      justify-content: space-evenly;
+    }
