@@ -70,13 +70,7 @@ h6 {
 
 
 
-/*--------------------------------------------------------------
-# Login and signup 
---------------------------------------------------------------*/
-.login-btn{
-  background-color: var(--primary-color);
-  color: var(--default-color);
-}
+
 
 
 /*--------------------------------------------------------------
@@ -1086,21 +1080,3 @@ h6 {
 # Personal css
 --------------------------------------------------------------*/
 
-.create-button {
-  color: var(--default-color);
-  background-color: var(--secondary-color);
-  padding: 10px;
-  text-decoration: none;
- 
-}
-
-.create-button:hover {
-  color: var(--default-color);
-  background-color: var(--primary-color);
-  text-decoration: none;
-}
-
-.create-forms{
-  display: flex;
-  justify-content: space-between;
-}
