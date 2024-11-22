@@ -18,3 +18,16 @@ class Tasks(models.Model):
     heading=models.CharField(max_length=100)
     description=models.CharField( max_length=100)
     days=models.IntegerField()
+    
+
+class Workers(models.Model):
+       name=models.CharField(max_length=100)
+       email=models.EmailField()
+       phone=models.IntegerField()
+       workertype=models.CharField( max_length=100)
+       role=models.CharField( max_length=100)
+       status=models.CharField( max_length=100)
+       image=models.ImageField(upload_to='workerimages/')
+         
+ 
+  

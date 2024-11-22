@@ -25,24 +25,42 @@
         
 
 
-          <!-- Card with an image on left -->
+        {% for worker in workers%}
+        
+      
           <div class="card mb-3">
             <div class="row g-0">
-              <div class="col-md-4">
-                <img src="{% static 'assets/img/card.jpg' %}" class="img-fluid rounded-start mt-2 ms-2" alt="...">
+         <div class="col-md-4">
+                <img src="{{worker.image.url}}" class="img-fluid rounded-start mt-2 ms-2" alt="...">
               </div>
               <div class="col-md-8">
                 <div class="card-body">
-                  <h5 class="card-title">Name</h5><span>Employee id</span>
-                  <p class="card-text">Role</p>
-                  <p class="card-text">Phone number</p>
-                  <p class="card-text">Worker type</p>
-                  <p class="card-text">Email address</p>
+                  <h5 class="card-title">{{worker.name}}</h5><span>41710{{worker.id}}</span>
+                  <p class="card-text">{{worker.role}}</p>
+                  <p class="card-text">{{worker.phone}}</p>
+                  <p class="card-text">{{worker.worktype}}</p>
+                  <p class="card-text">{{worker.email}}</p>
+                  <p class="card-text">Employment status</p>
+                  {% if  worker.status=="terminated" %}
+                  <button type="button" class="btn btn-danger">Terminated</button>
+                  {% elif worker.status=="active" %}
+                  <button type="button" class="btn btn-success">Active</button>
+                  {% else %}
+                  <button type="button" class="btn btn-warning">Leave</button>
+                  {% endif %}
+              <div>
+                  <span>
+                    <a href="" class="btn create-button ms-1 me-2">Delete task</a>
+                  </span>
+                  <span>
+                    <a href="" class="btn create-button">Edit task</a>
+                  </span>
+                </div>
                 </div>
               </div>
             </div>
           </div><!-- End Card with an image on left -->
-
+          {% endfor %}
 
 
         </div>
