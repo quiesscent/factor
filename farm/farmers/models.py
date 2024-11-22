@@ -9,3 +9,12 @@ class Farmers(models.Model):
     phone=models.IntegerField()
     profession = models.CharField(max_length=100, null=True)
     image=models.ImageField( upload_to='images/')
+    
+
+
+class Tasks(models.model):
+    name=models.CharField(max_length=100)
+    role=models.EmailField()
+    heading=models.CharField(max_length=100)
+    description=models.CharField( max_length=100)
+    days=models.IntegerField()
