@@ -19,7 +19,7 @@ def index(request):
 
 def workersPage(request):
     workers=Workers.objects.all()
-    return render(request,'workers-page.html',{'workers',workers})
+    return render(request,'workers-page.html',{'workers':workers})
 
 
 def createWorkersPage(request):
@@ -29,8 +29,8 @@ def createWorkersPage(request):
         role=request.POST['role']
         email=request.POST['email']
         worktype=request.POST['worktype']
-        status=request.POST['status'].lower
-        image=request.POST['image']
+        status=request.POST['status'].lower()
+        image=request.FILES['image']
         
         worker=Workers(name=name, phone=phone, role=role, email=email, worktype=worktype,status=status,image=image)
         worker.save()
