@@ -12,9 +12,9 @@ class Farmers(models.Model):
     
 
 
-class Tasks(models.model):
+class Tasks(models.Model):
     name=models.CharField(max_length=100)
-    role=models.EmailField()
+    role=models.CharField( max_length=100)
     heading=models.CharField(max_length=100)
     description=models.CharField( max_length=100)
     days=models.IntegerField()

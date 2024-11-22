@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render,redirect
 from . models import Farmers, Tasks
 
 
@@ -34,7 +34,7 @@ def createTasksPage(request):
         
         task=Tasks(name=name,role=role,heading=heading,description=description,days=days)
         task.save()
-        return redirect('tasksPage/')    
+        return redirect('/tasksPage/')    
                
     return render(request,'create-tasks.html')
 

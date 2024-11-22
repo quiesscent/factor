@@ -1105,5 +1105,5 @@ h6 {
     
     .tasks-align{
       display: flex;
-      justify-content: space-evenly;
+      justify-content: space-between;
     }
