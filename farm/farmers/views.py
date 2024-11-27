@@ -58,6 +58,31 @@ def tasksPage(request):
     return render(request,'tasks-page.html',{'tasks': tasks})
 
 def editTask(request, id):
-    return render(request, 'edit-task.html')
+    if request.method=="POST":
+        name = request.POST['name']
+        role = request.POST['role']
+        heading = request.POST['heading']
+        description = request.POST['description']
+        days = request.POST['days']
+
+        tasks=Task.objects.get(id = id)
+
+        tasks.name = name
+        tasks.role = role
+        tasks.heading = heading
+        tasks.description = description
+        tasks.days = days
+
+        tasks.save()
+        return redirect('/tasksPage/')
+        
+    tasks=Task.objects.get(id = id)
+    return render(request, 'edit-task.html',{'tasks': tasks})
+
+def deleteTask(request, id):
+    tasks=Task.objects.get(id=id)
+    tasks.delete()
+    
+    return redirect('/tasksPage/')
 
     
