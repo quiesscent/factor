@@ -1,7 +1,7 @@
 from django.db import models
 
 # Create your models here.
-class Farmers(models.Model):
+class Farmer(models.Model):
     name=models.CharField( max_length=100)
     email=models.EmailField()
     username=models.CharField(max_length=100)
@@ -12,15 +12,19 @@ class Farmers(models.Model):
     
 
 
-class Tasks(models.Model):
+class Task(models.Model):
     name=models.CharField(max_length=100)
     role=models.CharField( max_length=100)
     heading=models.CharField(max_length=100)
     description=models.CharField( max_length=100)
     days=models.IntegerField()
     
+    def __str__(self):
+        return self.name
+    
+    
 
-class Workers(models.Model):
+class Worker(models.Model):
        name=models.CharField(max_length=100)
        email=models.EmailField()
        phone=models.IntegerField()
@@ -28,6 +32,11 @@ class Workers(models.Model):
        role=models.CharField( max_length=100)
        status=models.CharField( max_length=100)
        image=models.ImageField(upload_to='workerimages/')
+       
+       
+       def __str__(self):
+           return self.name
+       
          
  
   

@@ -1,5 +1,5 @@
 from django.shortcuts import render,redirect
-from . models import Farmers, Tasks, Workers
+from . models import Farmer, Task, Worker
 
 
 # Create your views here.
@@ -18,7 +18,7 @@ def index(request):
 
 
 def workersPage(request):
-    workers=Workers.objects.all()
+    workers=Worker.objects.all()
     return render(request,'workers-page.html',{'workers':workers})
 
 
@@ -32,7 +32,7 @@ def createWorkersPage(request):
         status=request.POST['status'].lower()
         image=request.FILES['image']
         
-        worker=Workers(name=name, phone=phone, role=role, email=email, worktype=worktype,status=status,image=image)
+        worker=Worker(name=name, phone=phone, role=role, email=email, worktype=worktype,status=status,image=image)
         worker.save()
         return redirect('/workersPage/')
     
@@ -46,7 +46,7 @@ def createTasksPage(request):
         description=request.POST['description']
         days=request.POST['days']
         
-        task=Tasks(name=name,role=role,heading=heading,description=description,days=days)
+        task=Task(name=name,role=role,heading=heading,description=description,days=days)
         task.save()
         return redirect('/tasksPage/')    
                
@@ -54,7 +54,10 @@ def createTasksPage(request):
 
 
 def tasksPage(request):
-    tasks=Tasks.objects.all()
+    tasks=Task.objects.all()
     return render(request,'tasks-page.html',{'tasks': tasks})
+
+def editTask(request, id):
+    return render(request, 'edit-task.html')
 
     
