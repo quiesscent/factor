@@ -38,6 +38,38 @@ def createWorkersPage(request):
     
     return render(request,'create-workers.html')
 
+def editWorker(request, id):
+    if request.method=="POST":
+        name=request.POST['name']
+        phone=request.POST['phone']
+        role=request.POST['role']
+        email=request.POST['email']
+        worktype=request.POST['worktype']
+        status=request.POST['status'].lower()
+        image=request.FILES['image']
+        
+        
+        workers=Worker.objects.get(id=id)
+        
+        workers.name = name
+        workers.phone = phone
+        workers.role = role
+        workers.email = email
+        workers.worktype = worktype
+        workers.status = status
+        workers.image = image
+        
+        workers.save()
+        return redirect('/workersPage/')
+    
+    workers=Worker.objects.get(id=id)
+    return render(request, 'edit-worker.html',{'workers': workers})
+
+def deleteWorker(request, id):
+    workers=Worker.objects.get(id=id)
+    workers.delete()
+    return redirect('/workersPage/')
+
 def createTasksPage(request):
     if request.method=="POST":
         name=request.POST['name']
@@ -51,6 +83,8 @@ def createTasksPage(request):
         return redirect('/tasksPage/')    
                
     return render(request,'create-tasks.html')
+
+
 
 
 def tasksPage(request):

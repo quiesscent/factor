@@ -35,7 +35,7 @@
               </div>
               <div class="col-md-8">
                 <div class="card-body">
-                  <h5 class="card-title">{{worker.name}}</h5><span>41710{{worker.id}}</span>
+                  <h5 class="card-title">{{worker.name}}</h5><span>417100{{worker.id}}</span>
                   <p class="card-text">{{worker.role}}</p>
                   <p class="card-text">0{{worker.phone}}</p>
                   <p class="card-text">{{worker.worktype}}</p>
@@ -52,10 +52,10 @@
                   {% endif %}
               <div>
                   <span>
-                    <a href="" class="btn create-button ms-1 me-2">Delete task</a>
+                    <a href="/editWorker/{{worker.id}}" class="btn create-button ms-1 me-2">Edit worker</a>
                   </span>
                   <span>
-                    <a href="" class="btn create-button">Edit task</a>
+                    <a href="/deleteWorker/{{worker.id}}" class="btn create-button">Delete worker</a>
                   </span>
                 </div>
                 </div>

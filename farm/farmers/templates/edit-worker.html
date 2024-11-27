@@ -1,0 +1,39 @@
+{% extends "layout.html" %}
+{% load static %}
+
+
+{% block body %}
+
+  <main id="main" class="main">
+
+<div class="row ">
+  <div class="col-sm-6 create-forms">
+    <form action="", method="post" enctype="multipart/form-data">
+     {% csrf_token %}
+
+     <input value="{{workers.name}}" name="name" type="text"  class="form-control mt-2 mb-2 btn btn-outline-success"  placeholder="Name" required>
+     <br/>
+     <input value="{{workers.email}}"  name="email" type="email"  class="form-control mt-2 mb-2 btn btn-outline-success"  placeholder="Email"required>
+     <br/>
+     <input value="{{workers.phone}}"  name="phone"  type="number" class="form-control mt-2 mb-2 btn btn-outline-success"  placeholder="Phone number"required>
+     <br/>
+     <input value="{{workers.role}}"  name="role" type="text" class="form-control mt-2 mb-2 btn btn-outline-success"    placeholder="Role" required>
+     <br/>
+     <input value="{{workers.status}}"  name="status" type="text" class="form-control mt-2 mb-2 btn btn-outline-success"    placeholder="e.g leave, terminated,active" required>
+     <br/>
+     <input value="{{workers.worktype}}"  name="worktype" type="text" class="form-control mt-2 mb-2 btn btn-outline-success"    placeholder="e.g contract " required>
+     <br/>
+     <img src="/media/{{workers.image}}" alt="" width="200"/>
+     <input name="image" type="file"  class="form-control mt-2 mb-2 btn btn-outline-success" required>
+     <br/>
+     <input type="submit" class="form-control btn btn-success btn-small"    value="save" >
+   
+
+    </form>
+  </div>
+  </div>
+
+  </main><!-- End #main -->
+
+
+{% endblock  %}

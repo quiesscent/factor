@@ -12,5 +12,7 @@ urlpatterns = [
   path("createTasksPage/", views.createTasksPage, name="createTasksPage"),
   path("editTask/<id>",views.editTask),
   path("deleteTask/<id>",views.deleteTask),
+  path("editWorker/<id>",views.editWorker),
+  path("deleteWorker/<id>",views.deleteWorker)
   
 ]
