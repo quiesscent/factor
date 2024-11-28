@@ -26,6 +26,37 @@
       
          
           {% for worker in workers%}
+
+          {% if worker.role|lower == "supervisor" %}
+          <div class="card  mb-3">
+            <div class="row g-0">
+         <div class="col-md-4 ">
+                <img src="{{worker.image.url}}"class="img-fluid rounded mt-2 ms-2" alt="...">
+              </div>
+              <div class="col-md-8">
+                <div class="card-body">
+                  <h5 class="card-title">{{worker.name}}</h5>
+                  <p class="card-text">{{worker.role}}</p>
+                  <p class="card-text">0{{worker.phone}}</p>
+                  <p class="card-text">{{worker.email}}</p>
+                  <p class="card-text">Employment status</p>
+                  {% if  worker.status == "terminated" %}
+                  <button type="button" class="btn btn-danger">Terminated</button>
+                  {% elif worker.status == "active" %}
+                  <button type="button" class="btn btn-success">Active</button>
+                  {% elif worker.status == "leave"  %}
+                  <button type="button" class="btn btn-warning">Leave</button>
+                  {% else %}
+                <p>Invalid entry!!</p>
+                {% endif %}
+          
+                </div>
+              </div>
+          
+            </div>
+          </div><!-- End Card with an image on left -->
+
+         {% else %}
           <div class="card  mb-3">
             <div class="row g-0">
          <div class="col-md-4 ">
@@ -45,15 +76,19 @@
                   <button type="button" class="btn btn-warning">Leave</button>
                   {% else %}
                 <p>Invalid entry!!</p>
-                  {% endif %}
-           
-
+                {% endif %}
+          
                 </div>
               </div>
           
-          
             </div>
           </div><!-- End Card with an image on left -->
+          {% endif %}
+
+
+
+
+
           {% endfor %}
 
 
