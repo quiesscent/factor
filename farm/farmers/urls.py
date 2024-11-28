@@ -15,6 +15,8 @@ urlpatterns = [
   path("editWorker/<id>",views.editWorker),
   path("deleteWorker/<id>",views.deleteWorker),
   path("contact/",views.contact, name="contact"),
-  path("workerHome/",views.workerHome, name="workerHome")
+  path("workerHome/",views.workerHome, name="workerHome"),
+  path("workerTask/",views.workerTask, name="workerTask"),
+  path("workerWorkers/", views.workerWorkers, name="workerWorkers")
   
 ]

@@ -145,3 +145,11 @@ def contact(request):
 #Workers pages
 def workerHome(request):
     return render(request,'workers/worker-home.html')
+
+def workerTask(request):
+    tasks=Task.objects.all()
+    return render(request,'workers/worker-task.html',{'tasks': tasks})
+
+def workerWorkers(request):
+    workers=Worker.objects.all()
+    return render(request, 'workers/worker-workers.html',{'workers': workers})
