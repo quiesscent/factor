@@ -2,6 +2,7 @@ from django.shortcuts import render,redirect
 from . models import Farmer, Task, Worker
 
 
+#Admins Pages
 # Create your views here.
 def login(request):
     return render(request,'login/login.html')
@@ -9,8 +10,6 @@ def login(request):
 
 def register(request):
     return render(request,'login/register.html')
-
-
 
 
 def index(request):
@@ -139,4 +138,10 @@ def contact(request):
         
         contact=Contact(name=name, email=email, role=role, workId=workId, subject=subject, message=message, image=image)
         contact.save()
-    return render(request,'contact.html')
+    return render(request,'workers/contact.html')
+
+
+
+#Workers pages
+def workerHome(request):
+    return render(request,'workers/worker-home.html')
