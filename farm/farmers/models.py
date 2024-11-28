@@ -37,6 +37,17 @@ class Worker(models.Model):
        def __str__(self):
            return self.name
        
-         
+class Contact(models.Model):
+    name=models.CharField( max_length=100)
+    email=models.EmailField()
+    role=models.CharField( max_length=100)
+    workId=models.IntegerField()
+    subject=models.CharField( max_length=100)
+    message=models.CharField( max_length=100)
+    image=models.ImageField( upload_to='contactimages/')
+    
+    def __str__(self):
+        return self.name
+    
  
   

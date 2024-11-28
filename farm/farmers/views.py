@@ -14,7 +14,14 @@ def register(request):
 
 
 def index(request):
-    return render(request,'index.html')
+    tasks=Task.objects.all()
+    workers=Worker.objects.all()
+    
+    context={
+        'tasks': tasks,
+        'workers':workers
+    }
+    return render(request,'index.html',context)
 
 
 def workersPage(request):
@@ -120,3 +127,16 @@ def deleteTask(request, id):
     return redirect('/tasksPage/')
 
     
+def contact(request):
+    if request.method=="POST":
+        name=request.POST['name']
+        email=request.POST['email']
+        role=request.POST['role']
+        workId=request.POST['workId']
+        subject=request.POST['subject']
+        message=request.POST['message']
+        image=request.POST['image']
+        
+        contact=Contact(name=name, email=email, role=role, workId=workId, subject=subject, message=message, image=image)
+        contact.save()
+    return render(request,'contact.html')

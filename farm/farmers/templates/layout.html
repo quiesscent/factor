@@ -332,27 +332,29 @@
 
 
 
+
+
+
    <!-- ======= Sidebar ======= -->
    <aside id="sidebar" class="sidebar">
 
-    <ul class="sidebar-nav " id="sidebar-nav">
+    <ul class="sidebar-nav dashboard-sidebar" id="sidebar-nav">
 
-      <li class="nav-item">
-        <a class="nav-link collapsed" href="index.html">
-          <i class="bi bi-grid"></i>
-          <span>Dashboard</span>
+      <li class="heading">
+        <a class="nav-link collapsed" >
+          <span>Welcome to Agriflow</span>
         </a>
       </li><!-- End Dashboard Nav -->
 
       <li class="nav-item">
-        <a class="nav-link collapsed" href="users-profile.html">
+        <a class="nav-link collapsed" href="{% url "farmers:home" %}">
           <i class="bi bi-person"></i>
           <span>Home</span>
         </a>
       </li><!-- End Profile Page Nav -->
 
       <li class="nav-item">
-        <a class="nav-link collapsed" href="users-profile.html">
+        <a class="nav-link collapsed" href="{% url "farmers:workersPage" %}">
           <i class="bi bi-person"></i>
           <span>Workers</span>
         </a>
@@ -363,7 +365,7 @@
 
 
       <li class="nav-item">
-        <a class="nav-link collapsed" href="users-profile.html">
+        <a class="nav-link collapsed" href="{% url "farmers:tasksPage" %}">
           <i class="bi bi-person"></i>
           <span>Tasks</span>
         </a>
@@ -391,7 +393,7 @@
       </li><!-- End F.A.Q Page Nav -->
 
       <li class="nav-item">
-        <a class="nav-link collapsed" href="pages-contact.html">
+        <a class="nav-link collapsed" href="{% url "farmers:contact" %}">
           <i class="bi bi-envelope me-2"></i>
           <span>Contact</span>
         </a>
