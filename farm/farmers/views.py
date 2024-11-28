@@ -4,11 +4,11 @@ from . models import Farmer, Task, Worker
 
 # Create your views here.
 def login(request):
-    return render(request,'login.html')
+    return render(request,'login/login.html')
 
 
 def register(request):
-    return render(request,'register.html')
+    return render(request,'login/register.html')
 
 
 
@@ -21,12 +21,12 @@ def index(request):
         'tasks': tasks,
         'workers':workers
     }
-    return render(request,'index.html',context)
+    return render(request,'admin/index.html',context)
 
 
 def workersPage(request):
     workers=Worker.objects.all()
-    return render(request,'workers-page.html',{'workers':workers})
+    return render(request,'admin/workers-page.html',{'workers':workers})
 
 
 def createWorkersPage(request):
@@ -43,7 +43,7 @@ def createWorkersPage(request):
         worker.save()
         return redirect('/workersPage/')
     
-    return render(request,'create-workers.html')
+    return render(request,'admin/create-workers.html')
 
 def editWorker(request, id):
     if request.method=="POST":
@@ -70,7 +70,7 @@ def editWorker(request, id):
         return redirect('/workersPage/')
     
     workers=Worker.objects.get(id=id)
-    return render(request, 'edit-worker.html',{'workers': workers})
+    return render(request, 'admin/edit-worker.html',{'workers': workers})
 
 def deleteWorker(request, id):
     workers=Worker.objects.get(id=id)
@@ -89,14 +89,14 @@ def createTasksPage(request):
         task.save()
         return redirect('/tasksPage/')    
                
-    return render(request,'create-tasks.html')
+    return render(request,'admin/create-tasks.html')
 
 
 
 
 def tasksPage(request):
     tasks=Task.objects.all()
-    return render(request,'tasks-page.html',{'tasks': tasks})
+    return render(request,'admin/tasks-page.html',{'tasks': tasks})
 
 def editTask(request, id):
     if request.method=="POST":
@@ -118,7 +118,7 @@ def editTask(request, id):
         return redirect('/tasksPage/')
         
     tasks=Task.objects.get(id = id)
-    return render(request, 'edit-task.html',{'tasks': tasks})
+    return render(request, 'admin/edit-task.html',{'tasks': tasks})
 
 def deleteTask(request, id):
     tasks=Task.objects.get(id=id)
