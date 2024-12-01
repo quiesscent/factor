@@ -1,6 +1,7 @@
 from django.shortcuts import render,redirect
 from . models import Farmer, Task, Worker
-
+from django.views.decorators.csrf import csrf_exempt
+from authentication.models import CustomUser
 
 #Admins Pages
 # Create your views here.
@@ -11,7 +12,7 @@ def login(request):
 def register(request):
     return render(request,'login/register.html')
 
-
+@csrf_exempt
 def index(request):
     tasks=Task.objects.all()
     workers=Worker.objects.all()
@@ -39,7 +40,10 @@ def createWorkersPage(request):
         image=request.FILES['image']
         
         worker=Worker(name=name, phone=phone, role=role, email=email, worktype=worktype,status=status,image=image)
+        create_user  = CustomUser.objects.create_user(username=name, email=email, user_type=role.lower(), password=email)
+        create_user.save()
         worker.save()
+        
         return redirect('/workersPage/')
     
     return render(request,'admin/create-workers.html')
