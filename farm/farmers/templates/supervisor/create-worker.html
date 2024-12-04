@@ -1,4 +1,4 @@
-{% extends "admin/layout.html" %}
+{% extends "supervisor/base.html" %}
 {% load static %}
 
 
@@ -29,11 +29,11 @@
                 <input type="text" class="form-control" name="phone" placeholder="Phone number"required>
               </div>
 
-              <div class="col-md-6 "  onchange="toggleGroupField()">
+              <div class="col-md-6 ">
                 <input type="text" class="form-control" name="role" placeholder="Role" required>
               </div>
 
-              <div class="col-md-6 " id="group-container" style="display: none;">
+              <div class="col-md-6 ">
                 <input type="text" class="form-control" name="group" placeholder="A, B, N/A" required>
               </div>
 

@@ -34,17 +34,17 @@
                 <input type="text" class="form-control" name="heading" placeholder="Heading"required>
               </div>
 
-        
-
-        
-
               <div class="col-md-6">
                 <input type="number" class="form-control" name="days" placeholder="e.g 1 ,2 " required>
               </div>
-              
+
+              <div class="col-md-12">
+                <textarea class="form-control" name="description" rows="6" placeholder="Description" required></textarea>
+              </div>
+
 
               <div class="col-md-12 text-center">
-                <button type="submit"class="btn btn-success ">Submit</button>
+                <button type="submit"class="btn btn-success ">Save</button>
               </div>
 
             </div>
@@ -58,52 +58,6 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    <div class="row ">
-      <div class="col-sm-6 ">
-    <form action="", method="post" enctype="multipart/form-data">
-     {% csrf_token %}
-
-     <input   name="name" type="text"  class="form-control mt-2 mb-2 btn btn-outline-success"  placeholder="Name" required>
-     <br/>
-     <input name="role" type="text"  class="form-control mt-2 mb-2 btn btn-outline-success"  placeholder="Role"required>
-     <br/>
-     <input name="heading"  type="text" class="form-control mt-2 mb-2 btn btn-outline-success"  placeholder="Heading"required>
-     <br/>
-     <textarea name="description" rows="5"cols="49" class="form-control btn  btn-outline-success  mt-2 mb-2 " required >
-      Task description....
-     </textarea>
-     <br/>
-     <input name="days" type="number"  class="form-control mt-2 mb-2 btn btn-outline-success" placeholder="Days"  required>
-     <br/>
-     <input type="submit" class="form-control btn btn-success btn-small"    value="save" >
-   
-
-    </form>
-  </div>
-</div>
 
   </main><!-- End #main -->
 

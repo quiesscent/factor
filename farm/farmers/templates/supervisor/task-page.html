@@ -1,0 +1,69 @@
+{% extends "supervisor/base.html" %}
+
+
+{% load static %}
+
+
+
+{% block  body%}
+
+
+ 
+
+  <main id="main" class="main">
+
+    <div class="pagetitle">
+      <h1>Tasks Page</h1>
+      <nav>
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+          <li class="breadcrumb-item">Components</li>
+          <li class="breadcrumb-item active">Tooltips</li>
+        </ol>
+      </nav>
+    </div><!-- End Page Title -->
+
+    <div>
+      <a href="" class="btn create-button">Create task</a>
+    </div>
+
+    <section class="section">
+      <div class="row">
+
+        {% for supervisortask in supervisortasks %}
+        
+      
+        <div class="col-lg-12 task-card">
+          <div class="card ">
+            <div class="card-body">
+              <h5 class="card-title"> {{supervisortask.name}}</h5>
+              <span class="ms-2">{{supervisortask.role}}</span>
+              <p class="ms-2 me-2">{{supervisortask.heading}}</p>
+               <div class="tasks-align">
+              <div>
+              <span class="ms-2 me-2">{{supervisortask.description}}</span>
+              </div>
+                <div>
+              <span class="ms-2 me-2">{{supervisortask.days}} days</span>
+                </div>
+              </div>
+
+              <span>
+                <a href="" class="btn create-button ms-1 me-2">Edit task</a>
+              </span>
+              <span>
+                <a href="" class="btn create-button">Delete task</a>
+              </span>
+
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+
+
+      </div>
+    </section>
+
+  </main><!-- End #main -->
+
+{% endblock  %}

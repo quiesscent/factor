@@ -1,5 +1,5 @@
 from django.shortcuts import render,redirect
-from . models import Farmer, Task, Worker
+from . models import Farmer, Task, Worker, SupervisorCreatetask, SupervisorCreateworker
 from django.views.decorators.csrf import csrf_exempt
 from authentication.models import CustomUser
 
@@ -157,3 +157,46 @@ def workerTask(request):
 def workerWorkers(request):
     workers=Worker.objects.all()
     return render(request, 'workers/worker-workers.html',{'workers': workers})
+
+def supervisorHome(request):
+    return render(request, 'supervisor/home.html')
+
+def supervisorCreatetask(request):
+    if request.method=="POST":
+        name=request.POST['name']
+        role=request.POST['role']
+        heading=request.POST['heading']
+        description=request.POST['description']
+        days=request.POST['days']
+      
+        
+        supervisortask=SupervisorCreatetask(name=name,role=role,heading=heading,description=description,days=days)
+        supervisortask.save()
+        return redirect('/supervisorTasksPage/')    
+    
+    return render(request,'supervisor/create-task.html')
+
+def supervisorTaskPage(request):
+    supervisortask=SupervisorCreatetask.objects.all()
+    return render(request, 'supervisor/task-page.html',{'supervisortask': supervisortask})
+
+
+def supervisorcreateWorker(request):
+    if request.method=="POST":
+        name=request.POST['name']
+        phone=request.POST['phone']
+        role=request.POST['role']
+        email=request.POST['email']
+        worktype=request.POST['worktype']
+        status=request.POST['status'].lower()
+        image=request.FILES['image']
+        group=request.POST['group']
+        
+        worker=Worker(name=name, phone=phone, role=role, email=email, worktype=worktype,status=status,group=group,image=image)
+        create_user  = CustomUser.objects.create_user(username=name, email=email, user_type=role.lower(), password=email)
+        create_user.save()
+        worker.save()
+        
+        return redirect('/workersPage/')
+    return render(request, 'supervisor/create-worker.html')
+

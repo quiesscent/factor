@@ -18,6 +18,8 @@ urlpatterns = [
   path("contact/",views.contact, name="contact"),
   path("workerHome/",views.workerHome, name="workerHome"),
   path("workerTask/",views.workerTask, name="workerTask"),
-  path("workerWorkers/", views.workerWorkers, name="workerWorkers")
-  
+  path("workerWorkers/", views.workerWorkers, name="workerWorkers"),
+  path("supervisorHome/", views.supervisorHome, name="supervisorHome"),
+  path("supervisorcreateTask/",views.supervisorCreatetask,name="supervisorCreatetaskPage"),
+  path("supervisorTaskPage/",views.supervisorTaskPage,name="supervisorTaskPage")
 ]

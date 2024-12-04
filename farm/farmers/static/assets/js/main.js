@@ -9,6 +9,29 @@
 (function() {
   "use strict";
 
+
+  function toggleGroupField() {
+    const roleField = document.getElementById("role");
+    const groupField = document.getElementById("group");
+    const groupContainer = document.getElementById("group-container");
+
+    // Check if the role is "Supervisor"
+    if (roleField.value.toLowerCase() === "supervisor") {
+      groupContainer.style.display = "block"; // Show group input
+      groupField.required = true; // Make it required
+    } else {
+      groupContainer.style.display = "none"; // Hide group input
+      groupField.required = false; // Remove required attribute
+      groupField.value = ""; // Clear group value
+    }
+  }
+
+
+
+
+
+
+
   /**
    * Easy selector helper function
    */

@@ -1,0 +1,79 @@
+{% extends "supervisor/base.html" %}
+
+
+
+{% load static %}
+
+
+{% block  body%}
+
+  <main id="main" class="main">
+
+    <div class="pagetitle">
+      <h1>Workers Details</h1>
+    </div><!-- End Page Title -->
+
+<div class="create-button-container">
+  <a href="{% url "farmers:createWorkersPage" %}" class=" btn create-button ">Add worker</a>
+</div>
+
+
+    <section class="section">
+      <div class="row align-items-top">
+        <div class="col-lg-10">
+
+        
+
+
+      
+         
+          {% for worker in workers%}
+          <div class="card  mb-3">
+            <div class="row g-0">
+         <div class="col-md-4 ">
+                <img src="{{worker.image.url}}"class="img-fluid rounded mt-2 ms-2" alt="...">
+              </div>
+              <div class="col-md-8">
+                <div class="card-body">
+                  <h5 class="card-title">{{worker.name}}</h5><span>417100{{worker.id}}</span>
+                  <p class="card-text">{{worker.role}}</p>
+                  <p class="card-text">0{{worker.phone}}</p>
+                  <p class="card-text">{{worker.worktype}}</p>
+                  <p class="card-text">{{worker.email}}</p>
+                  <p class="card-text">Employment status</p>
+                  {% if  worker.status == "terminated" %}
+                  <button type="button" class="btn btn-danger">Terminated</button>
+                  {% elif worker.status == "active" %}
+                  <button type="button" class="btn btn-success">Active</button>
+                  {% elif worker.status == "leave"  %}
+                  <button type="button" class="btn btn-warning">Leave</button>
+                  {% else %}
+                <p>Invalid entry!!</p>
+                  {% endif %}
+              <div>
+                  <span>
+                    <a href="/editWorker/{{worker.id}}" class="btn create-button ms-1 me-2">Edit worker</a>
+                  </span>
+                  <span>
+                    <a href="/deleteWorker/{{worker.id}}" class="btn create-button">Delete worker</a>
+                  </span>
+                </div>
+                </div>
+              </div>
+          
+          
+            </div>
+          </div><!-- End Card with an image on left -->
+          {% endfor %}
+
+
+        </div>
+
+      </div>
+    </section>
+
+  </main><!-- End #main -->
+
+  
+
+{% endblock  %}

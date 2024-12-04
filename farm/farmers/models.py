@@ -51,5 +51,31 @@ class Contact(models.Model):
     def __str__(self):
         return self.name
     
- 
-  
+
+
+class SupervisorCreateworker(models.Model):
+    name=models.CharField(max_length=100)
+    email=models.EmailField()
+    phone=models.IntegerField()
+    worktype=models.CharField( max_length=100)
+    role=models.CharField( max_length=100)
+    status=models.CharField( max_length=100)
+    group=models.CharField( max_length=50)
+    image=models.ImageField(upload_to='workerimages/')
+
+
+def __str__(self):
+    return self.name
+
+
+class SupervisorCreatetask(models.Model):
+    name=models.CharField(max_length=100)
+    role=models.CharField( max_length=100)
+    heading=models.CharField(max_length=100)
+    description=models.CharField( max_length=100)
+    days=models.IntegerField()
+    
+    def __str__(self):
+        return self.name
+    
+    
