@@ -159,9 +159,11 @@ def workerWorkers(request):
     return render(request, 'workers/worker-workers.html',{'workers': workers})
 
 def supervisorHome(request):
+    supervisortask=SupervisorCreatetask.objects.all()
+    supervisorworker=SupervisorCreateworker.objects.all()
     return render(request, 'supervisor/home.html')
 
-def supervisorCreatetask(request):
+def supervisorCreateTaskPage(request):
     if request.method=="POST":
         name=request.POST['name']
         role=request.POST['role']
@@ -181,7 +183,7 @@ def supervisorTaskPage(request):
     return render(request, 'supervisor/task-page.html',{'supervisortask': supervisortask})
 
 
-def supervisorcreateWorker(request):
+def supervisorCreateWorkerPage(request):
     if request.method=="POST":
         name=request.POST['name']
         phone=request.POST['phone']
@@ -192,11 +194,17 @@ def supervisorcreateWorker(request):
         image=request.FILES['image']
         group=request.POST['group']
         
-        worker=Worker(name=name, phone=phone, role=role, email=email, worktype=worktype,status=status,group=group,image=image)
+        supervisorworker=SupervisorCreateworker(name=name, phone=phone, role=role, email=email, worktype=worktype,status=status,group=group,image=image)
         create_user  = CustomUser.objects.create_user(username=name, email=email, user_type=role.lower(), password=email)
         create_user.save()
-        worker.save()
+        supervisorworker.save()
         
-        return redirect('/workersPage/')
+        return redirect('/supervisorWorkerPage/')
     return render(request, 'supervisor/create-worker.html')
 
+def supervisorWorkerPage(request):
+    supervisorworker=SupervisorCreateworker.objects.all()
+    return render(request,'supervisor/worker.html',{'supervisorworker': supervisorworker})
+
+def profilePage(request):
+    return render(request, 'supervisor/profile.html')

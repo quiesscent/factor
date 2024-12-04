@@ -14,7 +14,7 @@
     </div><!-- End Page Title -->
 
 <div class="create-button-container">
-  <a href="{% url "farmers:createWorkersPage" %}" class=" btn create-button ">Add worker</a>
+  <a href="{% url "farmers:supervisorCreateWorkerPage" %}" class=" btn create-button ">Add worker</a>
 </div>
 
 
@@ -27,19 +27,19 @@
 
       
          
-          {% for worker in workers%}
+          {% for supervisorworker in supervisorworkers%}
           <div class="card  mb-3">
             <div class="row g-0">
          <div class="col-md-4 ">
-                <img src="{{worker.image.url}}"class="img-fluid rounded mt-2 ms-2" alt="...">
+                <img src="{{supervisorworker.image.url}}"class="img-fluid rounded mt-2 ms-2" alt="...">
               </div>
               <div class="col-md-8">
                 <div class="card-body">
-                  <h5 class="card-title">{{worker.name}}</h5><span>417100{{worker.id}}</span>
-                  <p class="card-text">{{worker.role}}</p>
-                  <p class="card-text">0{{worker.phone}}</p>
-                  <p class="card-text">{{worker.worktype}}</p>
-                  <p class="card-text">{{worker.email}}</p>
+                  <h5 class="card-title">{{supervisorworker.name}}</h5><span>427100{{worker.id}}</span>
+                  <p class="card-text">{{supervisorworker.role}}</p>
+                  <p class="card-text">0{{supervisorworker.phone}}</p>
+                  <p class="card-text">{{supervisorworker.worktype}}</p>
+                  <p class="card-text">{{supervisorworker.email}}</p>
                   <p class="card-text">Employment status</p>
                   {% if  worker.status == "terminated" %}
                   <button type="button" class="btn btn-danger">Terminated</button>
@@ -52,10 +52,10 @@
                   {% endif %}
               <div>
                   <span>
-                    <a href="/editWorker/{{worker.id}}" class="btn create-button ms-1 me-2">Edit worker</a>
+                    <a href=" " class="btn create-button ms-1 me-2">Edit worker</a>
                   </span>
                   <span>
-                    <a href="/deleteWorker/{{worker.id}}" class="btn create-button">Delete worker</a>
+                    <a href=" " class="btn create-button">Delete worker</a>
                   </span>
                 </div>
                 </div>

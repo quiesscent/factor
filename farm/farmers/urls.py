@@ -20,6 +20,9 @@ urlpatterns = [
   path("workerTask/",views.workerTask, name="workerTask"),
   path("workerWorkers/", views.workerWorkers, name="workerWorkers"),
   path("supervisorHome/", views.supervisorHome, name="supervisorHome"),
-  path("supervisorcreateTask/",views.supervisorCreatetask,name="supervisorCreatetaskPage"),
-  path("supervisorTaskPage/",views.supervisorTaskPage,name="supervisorTaskPage")
+  path("supervisorCreateTaskPage/",views.supervisorCreateTaskPage,name="supervisorCreateTaskPage"),
+  path("supervisorTaskPage/",views.supervisorTaskPage,name="supervisorTaskPage"),
+  path("supervisorWorkerPage/",views.supervisorWorkerPage, name="supervisorWorkerPage"),
+  path("supervisorCreateWorkerPage/",views.supervisorCreateWorkerPage, name="supervisorCreateWorkerPage"),
+  path("profilePage/", views.profilePage, name="profilePage")
 ]
