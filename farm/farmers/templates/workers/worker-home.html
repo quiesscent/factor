@@ -1,6 +1,5 @@
 {% extends "workers/base.html" %}
 
-
 {% load static %}
 
 
@@ -28,11 +27,242 @@ Homepage
       </nav>
     </div><!-- End Page Title -->
 
- 
+    <section class="section dashboard">
+      <div class="row">
+
+        <!-- Left side columns -->
+        <div class="col-lg-11">
+          <div class="row">
+
+
+
+
+          <div class="col-lg-6">
+
+            <div class="card">
+              <div class="card-body pt-3">
+                <div class="tab-content pt-2">
+                  <div class="card-body profile-card pt-4 d-flex flex-column align-items-center">
+                    <img src="assets/img/profile-img.jpg" width="40px" alt="Profile-image" class="rounded-circle">
+                        <h2>Kevin Anderson</h2>
+                        <h3>Web Designer</h3>
+                      </div>
+                  <div class="tab-pane fade show active profile-overview" >
+                  
+  
+                    <h5 class="card-title">Profile Details</h5>
+  
+                    <div class="row">
+                      <div class="col-lg-3 col-md-4 label ">Full Name</div>
+                      <div class="col-lg-9 col-md-8">Kevin Anderson</div>
+                    </div>
+                    <br/>
+                    <div class="row">
+                      <div class="col-lg-3 col-md-4 label">Job</div>
+                      <div class="col-lg-9 col-md-8">Web Designer</div>
+                    </div>
+                    <br/>
+                    <div class="row">
+                      <div class="col-lg-3 col-md-4 label">Phone</div>
+                      <div class="col-lg-9 col-md-8">(436) 486-3538 x29071</div>
+                    </div>
+          <br/>
+                    <div class="row">
+                      <div class="col-lg-3 col-md-4 label">Email</div>
+                      <div class="col-lg-9 col-md-8">k.anderson@example.com</div>
+                    </div>
+  
+  
+                  
+                  </div>
+                </div>
+              </div>
+            </div>
+   </div><!-- End Bordered Tabs -->
+
+
+
+      <!-- Customers Card -->
+      <div class="col-lg-6">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">Pie Chart</h5>
+
+            <!-- Pie Chart -->
+            <canvas id="pieChart" style="max-height: 400px;"></canvas>
+            <script>
+              document.addEventListener("DOMContentLoaded", () => {
+                new Chart(document.querySelector('#pieChart'), {
+                  type: 'pie',
+                  data: {
+                    labels: [
+                      'Red',
+                      'Blue',
+                      'Yellow'
+                    ],
+                    datasets: [{
+                      label: 'My First Dataset',
+                      data: [300, 50, 100],
+                      backgroundColor: [
+                        'rgb(255, 99, 132)',
+                        'rgb(54, 162, 235)',
+                        'rgb(255, 205, 86)'
+                      ],
+                      hoverOffset: 4
+                    }]
+                  }
+                });
+              });
+            </script>
+            <!-- End Pie CHart -->
+
+          </div>
+        </div>
+      </div>
+    <!-- End Customers Card -->
+
+
+             
+  
+      <!-- Recent Sales -->
+      <div class="col-12">
+        <div class="card recent-sales overflow-auto">
+
+          <div class="filter">
+            <a class="icon" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>
+            <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
+              <li class="dropdown-header text-start">
+                <h6>Filter</h6>
+              </li>
+
+              <li><a class="dropdown-item" href="#">Today</a></li>
+              <li><a class="dropdown-item" href="#">This Month</a></li>
+              <li><a class="dropdown-item" href="#">This Year</a></li>
+            </ul>
+          </div>
+
+          <div class="card-body">
+            <h5 class="card-title">Recent Tasks <span>| Today</span></h5>
+
+            <table class="table table-borderless datatable">
+              <thead>
+                <tr>
+                  <th scope="col">Role</th>
+                  <th scope="col">Name</th>
+                  <th scope="col">Task</th>
+                  <th scope="col">Days</th>
+                  <th scope="col">Status</th>
+                </tr>
+              </thead>
+              <tbody>
+
+              
+             {% for supervisortask in  supervisortasks %}
+               <tr>
+                  <th scope="row"><a href="#">{{supervisortask.role}}</a></th>
+                  <td>{{supervisortask.name}}</td>
+                  <td><a href="#" class="text-primary">{{supervisortask.description}}</a></td>
+                  <td>{{supervisortask.days}}</td>
+                  <td><span class="badge ">{{supervisortask.status}}</span></td>
+                </tr>
+               
+                {% endfor %}
+
+              </tbody>
+            </table>
+
+          </div>
+
+        </div>
+      </div><!-- End Recent Sales -->
+
+
+
+            <!-- Top Selling -->
+            <div class="col-12">
+              <div class="card top-selling overflow-auto">
+
+                <div class="filter">
+                  <a class="icon" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>
+                  <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
+                    <li class="dropdown-header text-start">
+                      <h6>Filter</h6>
+                    </li>
+
+                    <li><a class="dropdown-item" href="#">Today</a></li>
+                    <li><a class="dropdown-item" href="#">This Month</a></li>
+                    <li><a class="dropdown-item" href="#">This Year</a></li>
+                  </ul>
+                </div>
+
+                <div class="card-body pb-0">
+                  <h5 class="card-title">Current Workers <span>| Today</span></h5>
+
+                  <table class="table table-borderless">
+                    <thead>
+                      <tr>
+                        <th scope="col">Worker</th>
+                        <th scope="col">Name</th>
+                        <th scope="col">Role</th>
+                        <th scope="col">Email</th>
+                        <th scope="col">Worker ID</th>
+                        <th scope="col">Group</th>
+                        <th scope="col">Status</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+
+
+                      {% for supervisorworker in supervisorworkers %}
+                      <tr>
+                        <th scope="row"><a href="#"><img src="{{supervisorworker.image.url}}" alt=""></a></th>
+                        <td><a href="#" class="text-primary fw-bold">{{supervisorworker.name}}</a></td>
+                        <td>{{supervisorworker.role}}</td>
+                        <td class="fw-bold">{{supervisorworker.email}}</td>
+                        <td>417100{{supervisorworker.id}}</td>
+                        <td class="fw-bold">{{supervisorworker.group}}</td>
+                        <td>   
+                          {% if  supervisorworker.status == "terminated" %}
+                          <button type="button" class="btn btn-danger">Terminated</button>
+                          {% elif supervisorworker.status == "active" %}
+                          <button type="button" class="btn btn-success">Active</button>
+                          {% elif supervisorworker.status == "leave"  %}
+                          <button type="button" class="btn btn-warning">Leave</button>
+                          {% else %}
+                        <p>Invalid entry!!</p>
+                          {% endif %}</td>
+                      </tr>
+                      
+                      {% endfor %}
+
+                    </tbody>
+                  </table>
+
+                </div>
+
+              </div>
+            </div><!-- End Top Selling -->
+
+
+      
+          </div>
+        </div><!-- End Left side columns -->
+
     
-   
+      </div>
+
+
+     
+
+    </section>
 
   </main><!-- End #main -->
 
   {% endblock  %}
+
+
+  <!--
+      
+  -->
+
 

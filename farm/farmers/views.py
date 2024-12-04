@@ -152,7 +152,14 @@ def contact(request):
 
 #Workers pages
 def workerHome(request):
-    return render(request,'workers/worker-home.html')
+    supervisorworker=SupervisorCreateworker.objects.all()
+    supervisortask=SupervisorCreatetask.objects.all()
+    context={
+        'supervisorworker': supervisorworker,
+        'supervisortask': supervisortask,
+       
+    }
+    return render(request,'workers/worker-home.html',context)
 
 def workerTask(request):
     tasks=Task.objects.all()
