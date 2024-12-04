@@ -16,10 +16,14 @@ def register(request):
 def index(request):
     tasks=Task.objects.all()
     workers=Worker.objects.all()
-    
+    supervisorworker=SupervisorCreateworker.objects.all()
+    supervisortask=SupervisorCreatetask.objects.all()
     context={
         'tasks': tasks,
-        'workers':workers
+        'workers':workers,
+        'supervisorworker': supervisorworker,
+        'supervisortask': supervisortask,
+       
     }
     return render(request,'admin/index.html',context)
 
@@ -178,9 +182,38 @@ def supervisorCreateTaskPage(request):
     
     return render(request,'supervisor/create-task.html')
 
+
+def supervisorEditTaskPage(request,id):
+    if request.method=="POST":
+        name = request.POST['name']
+        role = request.POST['role']
+        heading = request.POST['heading']
+        description = request.POST['description']
+        days = request.POST['days']
+
+        supervisortasks=SupervisorCreatetask.objects.get(id = id)
+
+        supervisortasks.name = name
+        supervisortasks.role = role
+        supervisortasks.heading = heading
+        supervisortasks.description = description
+        supervisortasks.days = days
+
+        supervisortasks.save()
+        return redirect('/supervisorTasksPage/')
+        
+    supervisortasks=SupervisorCreatetask.objects.get(id = id)
+    return render(request,'supervisor/edit-task.html')
+
+def supervisorTaskDelete(request,id):
+    supervisortasks=SupervisorCreatetask.objects.get(id = id)
+    supervisortasks.delete()
+    return redirect('/supervisorTaskPage/')
+
 def supervisorTaskPage(request):
     supervisortask=SupervisorCreatetask.objects.all()
     return render(request, 'supervisor/task-page.html',{'supervisortask': supervisortask})
+
 
 
 def supervisorCreateWorkerPage(request):
@@ -208,3 +241,6 @@ def supervisorWorkerPage(request):
 
 def profilePage(request):
     return render(request, 'supervisor/profile.html')
+
+def chartPage(request):
+    return render(request, 'charts-chartjs.html')

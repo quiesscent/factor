@@ -48,7 +48,7 @@ def login_(request):
             if user.user_type == 'admin':
                 return redirect('farmers:home')
             elif user.user_type == 'supervisor':
-                return redirect('home')
+                return redirect('farmer:supervisorHome')
             else:
                 return redirect('farmers:workerHome')
         else:
