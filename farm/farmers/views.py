@@ -172,7 +172,13 @@ def workerWorkers(request):
 def supervisorHome(request):
     supervisortask=SupervisorCreatetask.objects.all()
     supervisorworker=SupervisorCreateworker.objects.all()
-    return render(request, 'supervisor/home.html')
+    worker=Worker.objects.all()
+    context={
+        'worker': worker,
+        'supervisortask':supervisortask,
+        'supervisorworker':supervisorworker
+    }
+    return render(request, 'supervisor/home.html',context)
 
 def supervisorCreateTaskPage(request):
     if request.method=="POST":
