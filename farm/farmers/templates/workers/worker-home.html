@@ -38,14 +38,13 @@ Homepage
 
 
           <div class="col-lg-6">
+{% for workerProfile in workerProfiles %}
 
             <div class="card">
               <div class="card-body pt-3">
                 <div class="tab-content pt-2">
                   <div class="card-body profile-card pt-4 d-flex flex-column align-items-center">
-                    <img src="assets/img/profile-img.jpg" width="40px" alt="Profile-image" class="rounded-circle">
-                        <h2>Kevin Anderson</h2>
-                        <h3>Web Designer</h3>
+                    <img src="{% url "workerProfile.image.url" %}" width="40px" alt="Profile-image" class="rounded-circle">
                       </div>
                   <div class="tab-pane fade show active profile-overview" >
                   
@@ -54,22 +53,22 @@ Homepage
   
                     <div class="row">
                       <div class="col-lg-3 col-md-4 label ">Full Name</div>
-                      <div class="col-lg-9 col-md-8">Kevin Anderson</div>
+                      <div class="col-lg-9 col-md-8">{{workerProfile.name}}</div>
                     </div>
                     <br/>
                     <div class="row">
                       <div class="col-lg-3 col-md-4 label">Job</div>
-                      <div class="col-lg-9 col-md-8">Web Designer</div>
+                      <div class="col-lg-9 col-md-8">{{workerProfile.role}}r</div>
                     </div>
                     <br/>
                     <div class="row">
                       <div class="col-lg-3 col-md-4 label">Phone</div>
-                      <div class="col-lg-9 col-md-8">(436) 486-3538 x29071</div>
+                      <div class="col-lg-9 col-md-8">0{{workerProfile.phone}}</div>
                     </div>
           <br/>
                     <div class="row">
                       <div class="col-lg-3 col-md-4 label">Email</div>
-                      <div class="col-lg-9 col-md-8">k.anderson@example.com</div>
+                      <div class="col-lg-9 col-md-8">{{workerProfile.email}}</div>
                     </div>
   
   
@@ -78,6 +77,7 @@ Homepage
                 </div>
               </div>
             </div>
+            {% endfor %}
    </div><!-- End Bordered Tabs -->
 
 

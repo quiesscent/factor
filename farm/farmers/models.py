@@ -1,4 +1,5 @@
 from django.db import models
+from authentication .models import CustomUser
 
 
 
@@ -51,7 +52,31 @@ class Contact(models.Model):
     def __str__(self):
         return self.name
     
+    
+class SupervisorProfile(models.Model):
+        name=models.CharField( max_length=100)
+        email=models.EmailField( max_length=100)
+        role=models.CharField( max_length=100)
+        phone=models.IntegerField()
+        image=models.ImageField(upload_to='profileimages/')
+        
+        
+        
+        
+class WorkerProfile(models.Model):
+        name=models.CharField( max_length=100)
+        email=models.EmailField( max_length=100)
+        role=models.CharField( max_length=100)
+        phone=models.IntegerField()
+        image=models.ImageField(upload_to='profileimages/')
+    
 
+class AdminProfile(models.Model):
+        name=models.CharField( max_length=100)
+        email=models.EmailField( max_length=100)
+        role=models.CharField( max_length=100)
+        phone=models.IntegerField()
+        image=models.ImageField(upload_to='profileimages/')
 
 class SupervisorCreateworker(models.Model):
     name=models.CharField(max_length=100)

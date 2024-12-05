@@ -1,5 +1,5 @@
 from django.shortcuts import render,redirect
-from . models import Farmer, Task, Worker, SupervisorCreatetask, SupervisorCreateworker
+from . models import Farmer, Task, Worker, SupervisorCreatetask, SupervisorCreateworker,WorkerProfile,SupervisorProfile,AdminProfile
 from django.views.decorators.csrf import csrf_exempt
 from authentication.models import CustomUser
 
@@ -154,9 +154,11 @@ def contact(request):
 def workerHome(request):
     supervisorworker=SupervisorCreateworker.objects.all()
     supervisortask=SupervisorCreatetask.objects.all()
+    workerProfile=WorkerProfile.objects.all()
     context={
         'supervisorworker': supervisorworker,
         'supervisortask': supervisortask,
+        'workerProfile':workerProfile
        
     }
     return render(request,'workers/worker-home.html',context)
@@ -169,16 +171,25 @@ def workerWorkers(request):
     workers=Worker.objects.all()
     return render(request, 'workers/worker-workers.html',{'workers': workers})
 
+
+
 def supervisorHome(request):
-    supervisortask=SupervisorCreatetask.objects.all()
-    supervisorworker=SupervisorCreateworker.objects.all()
-    worker=Worker.objects.all()
-    context={
-        'worker': worker,
-        'supervisortask':supervisortask,
-        'supervisorworker':supervisorworker
-    }
-    return render(request, 'supervisor/home.html',context)
+        supervisortask = SupervisorCreatetask.objects.all()
+        supervisorworker = SupervisorCreateworker.objects.all()
+        worker = Worker.objects.all()  
+        user = CustomUser.objects.values()
+        workerProfile=WorkerProfile.objects.all()
+
+        context = {
+            'worker': worker,
+            'supervisortask': supervisortask,
+            'supervisorworker': supervisorworker,
+            'user': user,
+            'workerProfile': workerProfile
+        }
+        return render(request, 'supervisor/home.html', context)
+
+
 
 def supervisorCreateTaskPage(request):
     if request.method=="POST":
@@ -260,3 +271,24 @@ def chartPage(request):
 
 def inventoryTablePage(request):
     return render(request,'admin/inventory-table.html')
+
+def AdminProfileForm(request):
+    return render(request,'admin/profile-form.html')
+
+def SupervisorProfileForm(request):
+    return render(request,'supervisor/profile-form.html')
+
+def WorkerProfileForm(request):
+    if request.method=="POST":
+        name=request.POST['name']
+        role=request.POST['role']
+        email=request.POST['email']
+        phone=request.POST['phone']
+        image=request.FILES['image']
+
+
+        workerProfile=WorkerProfile(name=name,role=role,email=email,phone=phone,image=image)
+        workerProfile.save()
+        return redirect('/workerHome/') 
+    
+    return render(request,'workers/profile-form.html')
