@@ -45,99 +45,26 @@
   * License: https://bootstrapmade.com/license/
   ======================================================== -->
   
-  <style>
-    :root{
-      --secondary-color:#337839;
-      --primary-color:#53B517;
-      --default-color:#FFFFFF;
-      scroll-behavior: smooth;
-    }
-    body {
-      font-family: "Open Sans", sans-serif;
-      background: var(--default-color);
-      color: var(--primary-color);
-    }
-    /*--------------------------------------------------------------
-    # Login and signup 
-    --------------------------------------------------------------*/
-    .login-btn{
-      background-color: var(--primary-color);
-      color: var(--default-color);
-    }
 
-
-    .create-button {
-      color: var(--default-color);
-      background-color: var(--primary-color);
-      padding: 5px;
-      text-decoration: none;
-      margin-top:2px;
-      margin-bottom:6px;
-     
-    }
-    
-    .create-button:hover {
-      color: var(--primary-color);
-      background-color: var(--default-color);
-      text-decoration: none;
-      border:1px solid var(--primary-color);
-    }
-    
-    .create-forms{
-      display: flex;
-      justify-content: space-between;
-    }
-    
-    .tasks-align{
-      display: flex;
-      justify-content: space-between;
-    }
-    .task-card .card-title{
-      color:var(--secondary-color)
-      margin-bottom:3px;
-    }
-  </style>
 </head>
 
 <body>
 
-    <!-- ======= Header ======= -->
-    <header id="header" class="header fixed-top d-flex align-items-center">
-
-      <div class="d-flex align-items-center justify-content-between">
-        <a href="index.html" class="logo d-flex align-items-center">
-          <img src="{% static 'assets/img/logo.png' %}" alt="">
-          <span class="d-none d-lg-block">Agriflow</span>
-        </a>
-     <!-- <i class="bi bi-list toggle-sidebar-btn"></i>--->
-      </div><!-- End Logo -->
-  
-  
-
-      
-  
-    
-  
-     
-  
-    
-  
-         
-  
-    </header><!-- End Header -->
 
 
 
    <!-- ======= Sidebar ======= -->
    <aside id="sidebar" class="sidebar">
 
+    <div class="d-flex align-items-center justify-content-between">
+      <a href="index.html" class="logo d-flex align-items-center">
+        <img src="{% static 'assets/img/logo.png' %}" alt="">
+        <span class="d-none d-lg-block">Agriflow</span>
+      </a>
+         </div><!-- End Logo -->
+
     <ul class="sidebar-nav dashboard-sidebar" id="sidebar-nav">
 
-      <li class="heading">
-        <a class="nav-link collapsed" >
-          <span>Welcome to Agriflow</span>
-        </a>
-      </li><!-- End Dashboard Nav -->
 
       <li class="nav-item">
         <a class="nav-link collapsed" href="{% url "farmers:supervisorHome" %}">

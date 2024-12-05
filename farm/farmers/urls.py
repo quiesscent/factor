@@ -25,5 +25,7 @@ urlpatterns = [
   path("supervisorWorkerPage/",views.supervisorWorkerPage, name="supervisorWorkerPage"),
   path("supervisorCreateWorkerPage/",views.supervisorCreateWorkerPage, name="supervisorCreateWorkerPage"),
   path("profilePage/", views.profilePage, name="profilePage"),
-  path("chartPage/", views.chartPage, name="chartPage")
+  path("chartPage/", views.chartPage, name="chartPage"),
+  path("inventoryTablePage/", views.inventoryTablePage, name="inventoryTablePage"),
+  path("inventoryFormPage/", views.inventoryFormPage, name="inventoryFormPage")
 ]
