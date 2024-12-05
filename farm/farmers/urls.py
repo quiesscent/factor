@@ -27,5 +27,5 @@ urlpatterns = [
   path("profilePage/", views.profilePage, name="profilePage"),
   path("chartPage/", views.chartPage, name="chartPage"),
   path("inventoryTablePage/", views.inventoryTablePage, name="inventoryTablePage"),
-  path("inventoryFormPage/", views.inventoryFormPage, name="inventoryFormPage")
+  #path("inventoryFormPage/", views.inventoryFormPage, name="inventoryFormPage")
 ]

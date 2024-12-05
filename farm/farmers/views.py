@@ -251,3 +251,6 @@ def profilePage(request):
 
 def chartPage(request):
     return render(request, 'charts-chartjs.html')
+
+def inventoryTablePage(request):
+    return render(request,'admin/inventory-table.html')
