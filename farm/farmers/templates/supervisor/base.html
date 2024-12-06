@@ -20,6 +20,7 @@
   <!-- Favicons -->
   <link href="{% static 'assets/img/favicon.png' %}" rel="icon">
   <link href="{% static 'assets/img/apple-touch-icon.png' %}" rel="apple-touch-icon">
+  <script src="https://kit.fontawesome.com/9861babfd0.js" crossorigin="anonymous"></script>
 
   <!-- Google Fonts -->
   <link href="https://fonts.gstatic.com" rel="preconnect">
@@ -59,16 +60,14 @@
    <!-- ======= Sidebar ======= -->
    <aside id="sidebar" class="sidebar">
 
-    <div class="d-flex align-items-center justify-content-between heading">
-      <a href="index.html" class="logo d-flex align-items-center">
-        <img src="{% static 'assets/img/logo.png' %}" alt="">
-        <span class="d-none d-lg-block">Agriflow</span>
-      </a>
-         </div><!-- End Logo -->
+ 
 
     <ul class="sidebar-nav dashboard-sidebar" id="sidebar-nav">
 
-
+      <li class="nav-item">
+        <span>Welcome to Agrigrow farms</span>
+    </li><!-- End Profile Page Nav -->
+    
       <li class="nav-item">
         <a class="nav-link collapsed" href="{% url "farmers:supervisorHome" %}">
           <i class="bi bi-person"></i>
@@ -96,7 +95,7 @@
 
       
       <li class="nav-item">
-        <a class="nav-link collapsed" href="{% url "farmers:profilePage" %}">
+        <a class="nav-link collapsed" href="{% url "farmers:SupervisorProfilePage" %}">
           <i class="bi bi-person"></i>
           <span>Profile</span>
         </a>

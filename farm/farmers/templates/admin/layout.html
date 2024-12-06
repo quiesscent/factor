@@ -27,7 +27,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
-  
+  <script src="https://kit.fontawesome.com/9861babfd0.js" crossorigin="anonymous"></script>
   <!-- Vendor CSS Files -->
   <link href="{% static 'assets/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
   <link href="{% static 'assets/vendor/bootstrap-icons/bootstrap-icons.css' %}" rel="stylesheet">
@@ -61,26 +61,23 @@
 
     <ul class="sidebar-nav dashboard-sidebar" id="sidebar-nav">
 
-
-      <div class="d-flex align-items-center justify-content-between heading">
-        <a href="index.html" class="logo d-flex align-items-center">
-          <img src="{% static 'assets/img/logo.png' %}" alt="">
-          <span class="d-none d-lg-block">Agriflow</span>
-        </a>
-           </div><!-- End Logo -->
+      <li class="nav-item">
+          <span>Welcome to Agrigrow farms</span>
+      </li><!-- End Profile Page Nav -->
+     
 
 
 
       <li class="nav-item">
         <a class="nav-link collapsed" href="{% url "farmers:home" %}">
-          <i class="bi bi-person"></i>
+          <i class="fa-solid fa-house " style="color: #FFFFFF;"></i>
           <span>Home</span>
         </a>
       </li><!-- End Profile Page Nav -->
 
       <li class="nav-item">
         <a class="nav-link collapsed" href="{% url "farmers:workersPage" %}">
-          <i class="bi bi-person"></i>
+          <i class="fa-solid fa-list" style="color: #FFFFFF;"></i>
           <span>Workers</span>
         </a>
       </li><!-- End Profile Page Nav -->
@@ -91,14 +88,14 @@
 
       <li class="nav-item">
         <a class="nav-link collapsed" href="{% url "farmers:tasksPage" %}">
-          <i class="bi bi-person"></i>
+          <i class="fa-solid fa-business-time" style="color: #FFFFFF;"></i>
           <span>Tasks</span>
         </a>
       </li><!-- End Profile Page Nav -->
     
       <li class="nav-item">
-        <a class="nav-link collapsed" href="{% url "farmers:tasksPage" %}">
-          <i class="bi bi-person"></i>
+        <a class="nav-link collapsed" href="{% url "farmers:AdminProfilePage" %}">
+          <i class="fa-solid fa-user" style="color: #FFFFFF;"></i>
           <span>Profile</span>
         </a>
       </li><!-- End Profile Page Nav -->

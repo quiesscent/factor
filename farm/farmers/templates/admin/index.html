@@ -37,46 +37,94 @@ Homepage
   
 
             <div class="col-lg-6">
+              {% if adminProfiles %}
+              {% for adminProfile in adminProfiles %}
+              
+                          <div class="card">
+                            <div class="card-body pt-3">
+                              <div class="tab-content pt-2">
+                                <div class="card-body profile-card pt-4 d-flex flex-column align-items-center">
+                                  <img src="{% url "adminProfile.image.url" %}" width="40px" alt="Profile-image" class="rounded-circle">
+                                    </div>
+                                <div class="tab-pane fade show active profile-overview" >
+                                
+                
+                                  <h5 class="card-title">Profile Details</h5>
+                
+                                  <div class="row">
+                                    <div class="col-lg-3 col-md-4 label ">Full Name</div>
+                                    <div class="col-lg-9 col-md-8">{{adminProfile.name}}</div>
+                                  </div>
+                                  <br/>
+                                  <div class="row">
+                                    <div class="col-lg-3 col-md-4 label">Job</div>
+                                    <div class="col-lg-9 col-md-8">{{adminProfile.role}}r</div>
+                                  </div>
+                                  <br/>
+                                  <div class="row">
+                                    <div class="col-lg-3 col-md-4 label">Phone</div>
+                                    <div class="col-lg-9 col-md-8">0{{adminProfile.phone}}</div>
+                                  </div>
+                        <br/>
+                                  <div class="row">
+                                    <div class="col-lg-3 col-md-4 label">Email</div>
+                                    <div class="col-lg-9 col-md-8">{{adminProfile.email}}</div>
+                                  </div>
+                
+                               
+                                
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          {% endfor %}
+              
+                          {% else %}
+              
+                <div class="card">
+                              <div class="card-body pt-3">
+                                <div class="tab-content pt-2">
+                                  <div class="card-body profile-card pt-4 d-flex flex-column align-items-center">
+                                    <img src="{% static 'assets/img/profile-img.jpg' %}" width="40px" alt="Profile-image" class="rounded-circle">
+                                      </div>
+                                  <div class="tab-pane fade show active profile-overview" >
+                                  
+                  
+                                    <h5 class="card-title">Profile Details</h5>
+                  
+                                    <div class="row">
+                                      <div class="col-lg-3 col-md-4 label ">Full Name</div>
+                                      <div class="col-lg-9 col-md-8">Kevin Anderson</div>
+                                    </div>
+                                    <br/>
+                                    <div class="row">
+                                      <div class="col-lg-3 col-md-4 label">Job</div>
+                                      <div class="col-lg-9 col-md-8">Web Designer</div>
+                                    </div>
+                                    <br/>
+                                    <div class="row">
+                                      <div class="col-lg-3 col-md-4 label">Phone</div>
+                                      <div class="col-lg-9 col-md-8">(436) 486-3538 x29071</div>
+                                    </div>
+                          <br/>
+                                    <div class="row">
+                                      <div class="col-lg-3 col-md-4 label">Email</div>
+                                      <div class="col-lg-9 col-md-8">k.anderson@example.com</div>
+                                    </div>
+                  
+                                    <div>
+                                      <a href="{% url "farmers:AdminProfileForm" %}" class="btn create-button">Update Profile</a>
+                                    </div>
+                                  
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+              
+              
+              
+                          {% endif %}
 
-              <div class="card">
-                <div class="card-body pt-3">
-                  <div class="tab-content pt-2">
-                    <div class="card-body profile-card pt-4 d-flex flex-column align-items-center">
-                      <img src="assets/img/profile-img.jpg" width="40px" alt="Profile-image" class="rounded-circle">
-                          <h2>Kevin Anderson</h2>
-                          <h3>Web Designer</h3>
-                        </div>
-                    <div class="tab-pane fade show active profile-overview" >
-                    
-    
-                      <h5 class="card-title">Profile Details</h5>
-    
-                      <div class="row">
-                        <div class="col-lg-3 col-md-4 label ">Full Name</div>
-                        <div class="col-lg-9 col-md-8">Kevin Anderson</div>
-                      </div>
-                      <br/>
-                      <div class="row">
-                        <div class="col-lg-3 col-md-4 label">Job</div>
-                        <div class="col-lg-9 col-md-8">Web Designer</div>
-                      </div>
-                      <br/>
-                      <div class="row">
-                        <div class="col-lg-3 col-md-4 label">Phone</div>
-                        <div class="col-lg-9 col-md-8">(436) 486-3538 x29071</div>
-                      </div>
-            <br/>
-                      <div class="row">
-                        <div class="col-lg-3 col-md-4 label">Email</div>
-                        <div class="col-lg-9 col-md-8">k.anderson@example.com</div>
-                      </div>
-    
-    
-                    
-                    </div>
-                  </div>
-                </div>
-              </div>
      </div><!-- End Bordered Tabs -->
   
   
@@ -87,7 +135,6 @@ Homepage
             <div class="card-body">
               <h5 class="card-title">Pie Chart</h5>
   
-              <!-- Pie Chart -->
               <canvas id="pieChart" style="max-height: 400px;"></canvas>
               <script>
                 document.addEventListener("DOMContentLoaded", () => {
@@ -95,17 +142,17 @@ Homepage
                     type: 'pie',
                     data: {
                       labels: [
-                        'Red',
-                        'Blue',
-                        'Yellow'
+                        'Task 1',
+                        'Task 2',
+                        'Task 3'
                       ],
                       datasets: [{
-                        label: 'My First Dataset',
+                        label: 'Task Distribution',
                         data: [300, 50, 100],
                         backgroundColor: [
-                          'rgb(255, 99, 132)',
-                          'rgb(54, 162, 235)',
-                          'rgb(255, 205, 86)'
+                          '#41945E', // Green 1
+                          '#0E612B', // Green 2
+                          '#415A23'  // Green 3
                         ],
                         hoverOffset: 4
                       }]
@@ -113,7 +160,6 @@ Homepage
                   });
                 });
               </script>
-              <!-- End Pie CHart -->
   
             </div>
           </div>

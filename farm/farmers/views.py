@@ -263,7 +263,7 @@ def supervisorWorkerPage(request):
     supervisorworker=SupervisorCreateworker.objects.all()
     return render(request,'supervisor/worker.html',{'supervisorworker': supervisorworker})
 
-def profilePage(request):
+def SupervisorProfilePage(request):
     return render(request, 'supervisor/profile.html')
 
 def chartPage(request):
@@ -273,9 +273,32 @@ def inventoryTablePage(request):
     return render(request,'admin/inventory-table.html')
 
 def AdminProfileForm(request):
+    if request.method=="POST":
+        name=request.POST['name']
+        role=request.POST['role']
+        email=request.POST['email']
+        phone=request.POST['phone']
+        image=request.FILES['image']
+
+
+        supervisorProfile=supervisorProfile(name=name,role=role,email=email,phone=phone,image=image)
+        supervisorProfile.save()
+        return redirect('/Home/') 
     return render(request,'admin/profile-form.html')
 
 def SupervisorProfileForm(request):
+    if request.method=="POST":
+        name=request.POST['name']
+        role=request.POST['role']
+        email=request.POST['email']
+        phone=request.POST['phone']
+        image=request.FILES['image']
+
+
+        supervisorProfile=supervisorProfile(name=name,role=role,email=email,phone=phone,image=image)
+        supervisorProfile.save()
+        return redirect('/supervisorHome/') 
+                        
     return render(request,'supervisor/profile-form.html')
 
 def WorkerProfileForm(request):
@@ -292,3 +315,17 @@ def WorkerProfileForm(request):
         return redirect('/workerHome/') 
     
     return render(request,'workers/profile-form.html')
+
+def AdminProfilePage(request):
+    adminProfile=AdminProfile.objects.all()
+    return render(request,'admin/profile.html',{'adminProfile': adminProfile})
+
+
+def SupervisorProfilePage(request):
+    supervisorProfile=SupervisorProfile.objects.all()
+    return render(request,'supervisor/profile.html',{'supervisorProfile': supervisorProfile})
+
+
+def WorkerProfilePage(request):
+    workerProfile=WorkerProfile.objects.all()
+    return render(request,'worker/profile.html',{'workerProfile': workerProfile})

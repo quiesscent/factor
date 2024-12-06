@@ -38,6 +38,7 @@ Homepage
 
 
           <div class="col-lg-6">
+            {% if workerProfiles %}
 {% for workerProfile in workerProfiles %}
 
             <div class="card">
@@ -70,6 +71,8 @@ Homepage
                       <div class="col-lg-3 col-md-4 label">Email</div>
                       <div class="col-lg-9 col-md-8">{{workerProfile.email}}</div>
                     </div>
+
+                 
   
   
                   
@@ -78,6 +81,52 @@ Homepage
               </div>
             </div>
             {% endfor %}
+
+            {% else %}
+
+  <div class="card">
+                <div class="card-body pt-3">
+                  <div class="tab-content pt-2">
+                    <div class="card-body profile-card pt-4 d-flex flex-column align-items-center">
+                      <img src="{% static 'assets/img/profile-img.jpg' %}" width="40px" alt="Profile-image" class="rounded-circle">
+                        </div>
+                    <div class="tab-pane fade show active profile-overview" >
+                    
+    
+                      <h5 class="card-title">Profile Details</h5>
+    
+                      <div class="row">
+                        <div class="col-lg-3 col-md-4 label ">Full Name</div>
+                        <div class="col-lg-9 col-md-8">Kevin Anderson</div>
+                      </div>
+                      <br/>
+                      <div class="row">
+                        <div class="col-lg-3 col-md-4 label">Job</div>
+                        <div class="col-lg-9 col-md-8">Web Designer</div>
+                      </div>
+                      <br/>
+                      <div class="row">
+                        <div class="col-lg-3 col-md-4 label">Phone</div>
+                        <div class="col-lg-9 col-md-8">(436) 486-3538 x29071</div>
+                      </div>
+            <br/>
+                      <div class="row">
+                        <div class="col-lg-3 col-md-4 label">Email</div>
+                        <div class="col-lg-9 col-md-8">k.anderson@example.com</div>
+                      </div>
+    
+                      <div>
+                        <a href="{% url "farmers:WorkerProfileForm" %}" class="btn create-button">Update Profile</a>
+                      </div>
+                    
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+
+
+            {% endif %}
    </div><!-- End Bordered Tabs -->
 
 
@@ -96,17 +145,17 @@ Homepage
                   type: 'pie',
                   data: {
                     labels: [
-                      'Red',
-                      'Blue',
-                      'Yellow'
+                      'Task 1',
+                      'Task 2',
+                      'Task 3'
                     ],
                     datasets: [{
-                      label: 'My First Dataset',
+                      label: 'Task Distribution',
                       data: [300, 50, 100],
                       backgroundColor: [
-                        'rgb(255, 99, 132)',
-                        'rgb(54, 162, 235)',
-                        'rgb(255, 205, 86)'
+                        '#41945E', // Green 1
+                        '#0E612B', // Green 2
+                        '#415A23'  // Green 3
                       ],
                       hoverOffset: 4
                     }]
