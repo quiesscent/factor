@@ -19,6 +19,9 @@ body {
   background: var(--default-color);
   color: var(--primary-color);
 }
+.main{
+  padding-bottom: 10px;
+}
 /*
 a {
   color: var(--default-color);
