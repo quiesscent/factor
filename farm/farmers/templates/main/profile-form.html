@@ -1,4 +1,4 @@
-{% extends "admin/layout.html" %}
+{% extends "main/layout.html" %}
 {% load static %}
 
 
@@ -7,9 +7,11 @@
   <main id="main" class="main">
 
 
-    <div class="row gy-4">
 
-    
+
+
+
+    <div class="row gy-4">
 
       <div class="col-xl-10">
         <div class="card p-4">
@@ -19,27 +21,26 @@
             <div class="row gy-4">
 
               <div class="col-md-6">
-                <input value= "{{tasks.name}}" type="text" name="name" class="form-control" placeholder="Name" required>
+                <input type="text" name="name" class="form-control" placeholder="Name" required>
               </div>
 
               <div class="col-md-6 ">
-                <input  "{{tasks.role}}" type="text" class="form-control" name="role" placeholder="Role" required>
+                <input type="text" class="form-control" name="role" placeholder="Role" required>
               </div>
 
-              <div class="col-md-6 ">
-                <input value= "{{tasks.heading}}" type="text" class="form-control" name="heading" placeholder="Heading"required>
+
+              <div class="col-md-6">
+                <input type="email" class="form-control" name="email" placeholder="joedoe@gmail.com " required>
               </div>
 
               <div class="col-md-6">
-                <input value= "{{tasks.days}}" type="number" class="form-control" name="days" placeholder="e.g 1 ,2 " required>
+                <input type="number" class="form-control" name="phone" placeholder="e.g 07+++" required>
               </div>
 
               <div class="col-md-12">
-                <textarea class="form-control" name="description" rows="6" placeholder="Description" required>
-                  {{tasks.description}}
-                </textarea>
+                <input type="file" class="form-control" name="image" required>
               </div>
-
+           
 
               <div class="col-md-12 text-center">
                 <button type="submit"class="btn btn-success ">Save</button>
@@ -52,6 +53,8 @@
       </div>
 
     </div>
+
+
 
 
 

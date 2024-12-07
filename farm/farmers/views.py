@@ -1,5 +1,5 @@
 from django.shortcuts import render,redirect
-from . models import Farmer, Task, Worker, SupervisorCreatetask, SupervisorCreateworker,WorkerProfile,SupervisorProfile,AdminProfile
+from . models import Farmer, Task, Worker, SupervisorCreatetask, SupervisorCreateworker,WorkerProfile,SupervisorProfile,MainProfile
 from django.views.decorators.csrf import csrf_exempt
 from authentication.models import CustomUser
 
@@ -25,12 +25,12 @@ def index(request):
         'supervisortask': supervisortask,
        
     }
-    return render(request,'admin/index.html',context)
+    return render(request,'main/index.html',context)
 
 
 def workersPage(request):
     workers=Worker.objects.all()
-    return render(request,'admin/workers-page.html',{'workers':workers})
+    return render(request,'main/workers-page.html',{'workers':workers})
 
 
 def createWorkersPage(request):
@@ -50,7 +50,7 @@ def createWorkersPage(request):
         
         return redirect('/workersPage/')
     
-    return render(request,'admin/create-workers.html')
+    return render(request,'main/create-workers.html')
 
 def editWorker(request, id):
     if request.method=="POST":
@@ -77,7 +77,7 @@ def editWorker(request, id):
         return redirect('/workersPage/')
     
     workers=Worker.objects.get(id=id)
-    return render(request, 'admin/edit-worker.html',{'workers': workers})
+    return render(request, 'main/edit-worker.html',{'workers': workers})
 
 def deleteWorker(request, id):
     workers=Worker.objects.get(id=id)
@@ -96,14 +96,14 @@ def createTasksPage(request):
         task.save()
         return redirect('/tasksPage/')    
                
-    return render(request,'admin/create-tasks.html')
+    return render(request,'main/create-tasks.html')
 
 
 
 
 def tasksPage(request):
     tasks=Task.objects.all()
-    return render(request,'admin/tasks-page.html',{'tasks': tasks})
+    return render(request,'main/tasks-page.html',{'tasks': tasks})
 
 def editTask(request, id):
     if request.method=="POST":
@@ -125,7 +125,7 @@ def editTask(request, id):
         return redirect('/tasksPage/')
         
     tasks=Task.objects.get(id = id)
-    return render(request, 'admin/edit-task.html',{'tasks': tasks})
+    return render(request, 'main/edit-task.html',{'tasks': tasks})
 
 def deleteTask(request, id):
     tasks=Task.objects.get(id=id)
@@ -269,10 +269,10 @@ def SupervisorProfilePage(request):
 def chartPage(request):
     return render(request, 'charts-chartjs.html')
 
-def inventoryTablePage(request):
-    return render(request,'admin/inventory-table.html')
+def MaininventoryTablePage(request):
+    return render(request,'main/inventory-table.html')
 
-def AdminProfileForm(request):
+def MainProfileForm(request):
     if request.method=="POST":
         name=request.POST['name']
         role=request.POST['role']
@@ -281,10 +281,10 @@ def AdminProfileForm(request):
         image=request.FILES['image']
 
 
-        supervisorProfile=supervisorProfile(name=name,role=role,email=email,phone=phone,image=image)
-        supervisorProfile.save()
-        return redirect('/Home/') 
-    return render(request,'admin/profile-form.html')
+        mainProfile=MainProfile(name=name,role=role,email=email,phone=phone,image=image)
+        mainProfile.save()
+        return redirect('/home/') 
+    return render(request,'main/profile-form.html')
 
 def SupervisorProfileForm(request):
     if request.method=="POST":
@@ -295,7 +295,7 @@ def SupervisorProfileForm(request):
         image=request.FILES['image']
 
 
-        supervisorProfile=supervisorProfile(name=name,role=role,email=email,phone=phone,image=image)
+        supervisorProfile=SupervisorProfile(name=name,role=role,email=email,phone=phone,image=image)
         supervisorProfile.save()
         return redirect('/supervisorHome/') 
                         
@@ -316,16 +316,16 @@ def WorkerProfileForm(request):
     
     return render(request,'workers/profile-form.html')
 
-def AdminProfilePage(request):
-    adminProfile=AdminProfile.objects.all()
-    return render(request,'admin/profile.html',{'adminProfile': adminProfile})
+def MainProfilePage(request):
+    mainProfile=MainProfile.objects.all()
+    return render(request,'main/profile.html',{'mainProfile': mainProfile})
 
 
 def SupervisorProfilePage(request):
-    supervisorProfile=SupervisorProfile.objects.all()
-    return render(request,'supervisor/profile.html',{'supervisorProfile': supervisorProfile})
+    supervisorProfiles=SupervisorProfile.objects.all()
+    return render(request,'supervisor/profile.html',{'supervisorProfiles': supervisorProfiles})
 
 
 def WorkerProfilePage(request):
-    workerProfile=WorkerProfile.objects.all()
-    return render(request,'worker/profile.html',{'workerProfile': workerProfile})
+    workerProfiles=WorkerProfile.objects.all()
+    return render(request,'workers/profile.html',{'workerProfiles': workersProfiles})

@@ -1,10 +1,13 @@
-{% extends "admin/layout.html" %}
+{% extends "main/layout.html" %}
 {% load static %}
 
 
 {% block body %}
 
   <main id="main" class="main">
+
+
+
 
     <div class="row gy-4">
 
@@ -18,35 +21,32 @@
             <div class="row gy-4">
 
               <div class="col-md-6">
-                <input type="text" name="name" class="form-control" placeholder="Name" required>
+                <input value="{{workers.name}}" type="text" name="name" class="form-control" placeholder="Name" required>
               </div>
 
               <div class="col-md-6 ">
-                <input type="email" class="form-control" name="email" placeholder="Email" required>
+                <input value="{{workers.email}}" type="email" class="form-control" name="email" placeholder="Email" required>
               </div>
 
               <div class="col-md-6 ">
-                <input type="text" class="form-control" name="phone" placeholder="Phone number"required>
+                <input value="{{workers.phone}}" type="text" class="form-control" name="phone" placeholder="Phone number"required>
               </div>
 
-              <div class="col-md-6 "  onchange="toggleGroupField()">
-                <input type="text" class="form-control" name="role" placeholder="Role" required>
-              </div>
-
-              <div class="col-md-6 " id="group-container" style="display: none;">
-                <input type="text" class="form-control" name="group" placeholder="A, B, N/A" required>
+              <div class="col-md-6 ">
+                <input value="{{workers.role}}" type="text" class="form-control" name="role" placeholder="Role" required>
               </div>
 
               <div class="col-md-6">
-                <input type="text" class="form-control" name="status" placeholder="e.g leave, terminated,active" required>
+                <input value="{{workers.status}}" type="text" class="form-control" name="status" placeholder="e.g leave, terminated,active" required>
               </div>
 
               <div class="col-md-6">
-                <input type="text" class="form-control" name="worktype" placeholder="e.g contract" required>
+                <input value="{{workers.worktype}}"  type="text" class="form-control" name="worktype" placeholder="e.g contract" required>
               </div>
               
 
               <div class="col-md-12 ">
+                <img src="/media/{{workers.image}}" alt="" width="200"/>
                 <input type="file" class="form-control" name="image" required>
               </div>
 
@@ -61,9 +61,6 @@
       </div>
 
     </div>
-
-
-
 
 
   </main><!-- End #main -->

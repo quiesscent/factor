@@ -1,11 +1,13 @@
 
 
+
+
 /*--------------------------------------------------------------
 # General
 */
 :root{
-  --secondary-color:#41945E;
-  --primary-color:#0E612B;
+  --secondary-color:#3C5E13;
+  --primary-color:#A8CD89;
   --default-color:#FFFFFF;
   --sidebar-color:#FFFFFF;
   --primary-font:"Roboto", sans-serif;
@@ -644,7 +646,7 @@ h6 {
 
 .create-button {
   color: var(--default-color);
-  background-color: var(--primary-color);
+  background-color: var(--secondary-color);
   padding: 5px;
   text-decoration: none;
   margin-top:2px;
@@ -653,10 +655,10 @@ h6 {
 }
 
 .create-button:hover {
-  color: var(--primary-color);
-  background-color: var(--default-color);
+  color: var(--default-color);
+  background-color: var(--primary-color);
   text-decoration: none;
-  border:1px solid var(--primary-color);
+  border:1px solid var(--default-color);
 }
 
 .create-forms{
@@ -671,4 +673,35 @@ h6 {
 .task-card .card-title{
   color:var(--secondary-color);
   margin-bottom:3px;
+}
+
+
+
+
+.main-page-heading{
+  background-color: #A8CD89;
+  padding-top:50px;
+  padding-bottom:50px;
+  text-align:center;
+  color:var(--secondary-color);
+}
+.main-page-heading h1{
+  font-size:50px
+}
+.main-page-heading h2{
+  font-size: 25px;
+}
+
+.btn-success{
+  background-color:var(--primary-color) !important;
+  color: var(--default-color);
+  border:none;
+}
+
+.text-primary{
+  color: var(--secondary-color) !important;
+}
+
+.pagetitle h1{
+  color: var(--secondary-color);
 }

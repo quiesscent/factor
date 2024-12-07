@@ -49,6 +49,7 @@
   ======================================================== -->
   
 
+
 </head>
 
 <body>
@@ -61,11 +62,6 @@
 
     <ul class="sidebar-nav dashboard-sidebar" id="sidebar-nav">
 
-      <li class="nav-item">
-          <span>Welcome to Agrigrow farms</span>
-      </li><!-- End Profile Page Nav -->
-     
-
 
 
       <li class="nav-item">
@@ -77,7 +73,7 @@
 
       <li class="nav-item">
         <a class="nav-link collapsed" href="{% url "farmers:workersPage" %}">
-          <i class="fa-solid fa-list" style="color: #FFFFFF;"></i>
+          <i class="fa-solid fa-users" style="color: #FFFFFF;"></i>
           <span>Workers</span>
         </a>
       </li><!-- End Profile Page Nav -->
@@ -94,9 +90,16 @@
       </li><!-- End Profile Page Nav -->
     
       <li class="nav-item">
-        <a class="nav-link collapsed" href="{% url "farmers:AdminProfilePage" %}">
+        <a class="nav-link collapsed" href="{% url "farmers:MainProfilePage" %}">
           <i class="fa-solid fa-user" style="color: #FFFFFF;"></i>
           <span>Profile</span>
+        </a>
+      </li><!-- End Profile Page Nav -->
+
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="{% url "farmers:MaininventoryTablePage" %}">
+          <i class="fa-solid fa-list" style="color: #FFFFFF;"></i>
+          <span>Inventory</span>
         </a>
       </li><!-- End Profile Page Nav -->
     
@@ -138,6 +141,11 @@
 
   </aside><!-- End Sidebar-->
 
+
+
+
+  
+
   {% block  body%}
 
   {% endblock  %}
@@ -146,7 +154,7 @@
 
 
 
-<a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+<footer class="fixed-botttom">Agrigrow farms</footer>
 
 <!-- Vendor JS Files -->
 <script src="{% static 'assets/vendor/apexcharts/apexcharts.min.js' %}"></script>

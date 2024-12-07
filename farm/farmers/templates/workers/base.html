@@ -64,21 +64,19 @@
 
     <ul class="sidebar-nav dashboard-sidebar" id="sidebar-nav">
 
-      <li class="nav-item">
-        <span>Welcome to Agrigrow farms</span>
-    </li><!-- End Profile Page Nav -->
+     
    
 
       <li class="nav-item">
         <a class="nav-link collapsed" href="{% url "farmers:workerHome" %}">
-          <i class="bi bi-person"></i>
+          <i class="fa-solid fa-house " style="color: #FFFFFF;"></i>
           <span>Home</span>
         </a>
       </li><!-- End Profile Page Nav -->
 
       <li class="nav-item">
         <a class="nav-link collapsed" href="{% url "farmers:workerWorkers" %}">
-          <i class="bi bi-person"></i>
+          <i class="fa-solid fa-users" style="color: #FFFFFF;"></i>
           <span>Workers</span>
         </a>
       </li><!-- End Profile Page Nav -->
@@ -89,19 +87,24 @@
 
       <li class="nav-item">
         <a class="nav-link collapsed" href="{% url "farmers:workerTask" %}">
-          <i class="bi bi-person"></i>
+          <i class="fa-solid fa-business-time" style="color: #FFFFFF;"></i>
           <span>Tasks</span>
         </a>
       </li><!-- End Profile Page Nav -->
 
       <li class="nav-item">
         <a class="nav-link collapsed" href="{% url "farmers:WorkerProfilePage" %}">
-          <i class="bi bi-person"></i>
+          <i class="fa-solid fa-user" style="color: #FFFFFF;"></i>
           <span>Profile</span>
         </a>
       </li><!-- End Profile Page Nav -->
     
-
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="{% url "farmers:WorkerProfilePage" %}">
+          <i class="fa-solid fa-list" style="color: #FFFFFF;"></i>
+          <span>Inventory</span>
+        </a>
+      </li><!-- End Profile Page Nav -->
      
       <div class="sidebar-footer">
       
@@ -143,7 +146,7 @@
 
 
 
-<a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
 
 <!-- Vendor JS Files -->
 <script src="{% static 'assets/vendor/apexcharts/apexcharts.min.js' %}"></script>
