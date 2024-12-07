@@ -9,7 +9,7 @@ class CustomUser(AbstractUser):
         ('worker', 'Worker'),
     )
     
-    user_type = models.CharField(max_length=10, choices=USER_TYPES)
+    user_type = models.CharField(max_length=100, choices=USER_TYPES)
     email = models.EmailField(unique=True)
     username = models.CharField(max_length=15, unique=True)
     

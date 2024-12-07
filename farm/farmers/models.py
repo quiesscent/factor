@@ -37,6 +37,7 @@ class Worker(models.Model):
        image=models.ImageField(upload_to='workerimages/')
        
        
+       
        def __str__(self):
            return self.name
        

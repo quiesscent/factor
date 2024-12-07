@@ -39,14 +39,13 @@ Homepage
 
 
           <div class="col-lg-6">
-            {% if workerProfiles %}
 {% for workerProfile in workerProfiles %}
 
             <div class="card">
               <div class="card-body pt-3">
                 <div class="tab-content pt-2">
                   <div class="card-body profile-card pt-4 d-flex flex-column align-items-center">
-                    <img src="{% url "workerProfile.image.url" %}" width="40px" alt="Profile-image" class="rounded-circle">
+                    <img src="{{workerProfile.image.url}}" width="80px" height="80px"alt="Profile-image" class="rounded-circle">
                       </div>
                   <div class="tab-pane fade show active profile-overview" >
                   
@@ -60,7 +59,7 @@ Homepage
                     <br/>
                     <div class="row">
                       <div class="col-lg-3 col-md-4 label">Job</div>
-                      <div class="col-lg-9 col-md-8">{{workerProfile.role}}r</div>
+                      <div class="col-lg-9 col-md-8">{{workerProfile.role}}</div>
                     </div>
                     <br/>
                     <div class="row">
@@ -83,51 +82,7 @@ Homepage
             </div>
             {% endfor %}
 
-            {% else %}
-
-  <div class="card">
-                <div class="card-body pt-3">
-                  <div class="tab-content pt-2">
-                    <div class="card-body profile-card pt-4 d-flex flex-column align-items-center">
-                      <img src="{% static 'assets/img/profile-img.jpg' %}" width="40px" alt="Profile-image" class="rounded-circle">
-                        </div>
-                    <div class="tab-pane fade show active profile-overview" >
-                    
-    
-                      <h5 class="card-title">Profile Details</h5>
-    
-                      <div class="row">
-                        <div class="col-lg-3 col-md-4 label ">Full Name</div>
-                        <div class="col-lg-9 col-md-8">Kevin Anderson</div>
-                      </div>
-                      <br/>
-                      <div class="row">
-                        <div class="col-lg-3 col-md-4 label">Job</div>
-                        <div class="col-lg-9 col-md-8">Web Designer</div>
-                      </div>
-                      <br/>
-                      <div class="row">
-                        <div class="col-lg-3 col-md-4 label">Phone</div>
-                        <div class="col-lg-9 col-md-8">(436) 486-3538 x29071</div>
-                      </div>
-            <br/>
-                      <div class="row">
-                        <div class="col-lg-3 col-md-4 label">Email</div>
-                        <div class="col-lg-9 col-md-8">k.anderson@example.com</div>
-                      </div>
-    
-                      <div>
-                        <a href="{% url "farmers:WorkerProfileForm" %}" class="btn create-button">Update Profile</a>
-                      </div>
-                    
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-
-
-            {% endif %}
+ 
    </div><!-- End Bordered Tabs -->
 
 
@@ -179,15 +134,8 @@ Homepage
         <div class="card recent-sales overflow-auto">
 
           <div class="filter">
-            <a class="icon" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>
             <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
               <li class="dropdown-header text-start">
-                <h6>Filter</h6>
-              </li>
-
-              <li><a class="dropdown-item" href="#">Today</a></li>
-              <li><a class="dropdown-item" href="#">This Month</a></li>
-              <li><a class="dropdown-item" href="#">This Year</a></li>
             </ul>
           </div>
 
@@ -233,16 +181,8 @@ Homepage
               <div class="card top-selling overflow-auto">
 
                 <div class="filter">
-                  <a class="icon" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>
                   <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
-                    <li class="dropdown-header text-start">
-                      <h6>Filter</h6>
-                    </li>
-
-                    <li><a class="dropdown-item" href="#">Today</a></li>
-                    <li><a class="dropdown-item" href="#">This Month</a></li>
-                    <li><a class="dropdown-item" href="#">This Year</a></li>
-                  </ul>
+                  
                 </div>
 
                 <div class="card-body pb-0">

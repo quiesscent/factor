@@ -16,21 +16,27 @@ def register(request):
 def index(request):
     tasks=Task.objects.all()
     workers=Worker.objects.all()
-    supervisorworker=SupervisorCreateworker.objects.all()
-    supervisortask=SupervisorCreatetask.objects.all()
+    supervisorworkers=SupervisorCreateworker.objects.all()
+    supervisortasks=SupervisorCreatetask.objects.all()
+    mainProfiles=MainProfile.objects.all()
     context={
         'tasks': tasks,
         'workers':workers,
-        'supervisorworker': supervisorworker,
-        'supervisortask': supervisortask,
-       
+        'supervisorworkers': supervisorworkers,
+        'supervisortasks': supervisortasks,
+        'mainProfiles': mainProfiles
     }
     return render(request,'main/index.html',context)
 
 
 def workersPage(request):
     workers=Worker.objects.all()
-    return render(request,'main/workers-page.html',{'workers':workers})
+    supervisorworkers=SupervisorCreateworker.objects.all()
+    context={
+        'workers':workers,
+        'supervisorworkers':supervisorworkers
+    }
+    return render(request,'main/workers-page.html',context)
 
 
 def createWorkersPage(request):
@@ -154,11 +160,11 @@ def contact(request):
 def workerHome(request):
     supervisorworker=SupervisorCreateworker.objects.all()
     supervisortask=SupervisorCreatetask.objects.all()
-    workerProfile=WorkerProfile.objects.all()
+    workerProfiles=WorkerProfile.objects.all()
     context={
         'supervisorworker': supervisorworker,
         'supervisortask': supervisortask,
-        'workerProfile':workerProfile
+        'workerProfiles':workerProfiles
        
     }
     return render(request,'workers/worker-home.html',context)
@@ -177,15 +183,14 @@ def supervisorHome(request):
         supervisortask = SupervisorCreatetask.objects.all()
         supervisorworker = SupervisorCreateworker.objects.all()
         worker = Worker.objects.all()  
-        user = CustomUser.objects.values()
-        workerProfile=WorkerProfile.objects.all()
+        supervisorProfiles=SupervisorProfile.objects.all()
 
         context = {
             'worker': worker,
             'supervisortask': supervisortask,
             'supervisorworker': supervisorworker,
-            'user': user,
-            'workerProfile': workerProfile
+            'supervisorProfiles':supervisorProfiles
+            
         }
         return render(request, 'supervisor/home.html', context)
 
@@ -263,8 +268,6 @@ def supervisorWorkerPage(request):
     supervisorworker=SupervisorCreateworker.objects.all()
     return render(request,'supervisor/worker.html',{'supervisorworker': supervisorworker})
 
-def SupervisorProfilePage(request):
-    return render(request, 'supervisor/profile.html')
 
 def chartPage(request):
     return render(request, 'charts-chartjs.html')
@@ -286,6 +289,14 @@ def MainProfileForm(request):
         return redirect('/home/') 
     return render(request,'main/profile-form.html')
 
+def MainProfilePage(request):
+    mainProfiles=MainProfile.objects.all()
+    context={
+        'mainProfiles': mainProfiles
+    }
+    return render(request,'main/profile.html',context)
+
+
 def SupervisorProfileForm(request):
     if request.method=="POST":
         name=request.POST['name']
@@ -300,6 +311,13 @@ def SupervisorProfileForm(request):
         return redirect('/supervisorHome/') 
                         
     return render(request,'supervisor/profile-form.html')
+
+def SupervisorProfilePage(request):
+    supervisorProfiles=SupervisorProfile.objects.all()
+    context={
+        'supervisorProfiles':supervisorProfiles
+    }
+    return render(request,'supervisor/profile.html',context)
 
 def WorkerProfileForm(request):
     if request.method=="POST":
@@ -316,16 +334,14 @@ def WorkerProfileForm(request):
     
     return render(request,'workers/profile-form.html')
 
-def MainProfilePage(request):
-    mainProfile=MainProfile.objects.all()
-    return render(request,'main/profile.html',{'mainProfile': mainProfile})
-
-
-def SupervisorProfilePage(request):
-    supervisorProfiles=SupervisorProfile.objects.all()
-    return render(request,'supervisor/profile.html',{'supervisorProfiles': supervisorProfiles})
 
 
 def WorkerProfilePage(request):
     workerProfiles=WorkerProfile.objects.all()
-    return render(request,'workers/profile.html',{'workerProfiles': workersProfiles})
+    context={
+        'workerProfiles': workerProfiles
+    }
+    return render(request,'workers/profile.html',context)
+
+
+
