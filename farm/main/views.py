@@ -5,9 +5,63 @@ from authentication.models import CustomUser
 
 #Admins Pages
 # Create your views here.
+def dashboard(request):
+    pass
+
+def profile(request):
+    pass
+
+def tasks(request):
+    pass
+
+def workers(request):
+    pass
+
+def addworker(request):
+    pass
+
+def supervisors(request):
+    pass
+
+def addSupervisor(request):
+    pass
+
+def deleteWorker(request):
+    pass
+
+def deleteSupervisor(request):
+    pass
+
+def assignTask(request):
+    pass
+
+def deleteTask(request):
+    pass
+
+def worker(request):
+    pass
+
+def supervisor(request):
+    pass
+
+def task(request):
+    pass
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 def login(request):
     return render(request,'login/login.html')
-
 
 def register(request):
     return render(request,'login/register.html')
@@ -28,7 +82,6 @@ def index(request):
     }
     return render(request,'main/index.html',context)
 
-
 def workersPage(request):
     workers=Worker.objects.all()
     supervisorworkers=SupervisorCreateworker.objects.all()
@@ -37,7 +90,6 @@ def workersPage(request):
         'supervisorworkers':supervisorworkers
     }
     return render(request,'main/workers-page.html',context)
-
 
 def createWorkersPage(request):
     if request.method=="POST":
@@ -104,9 +156,6 @@ def createTasksPage(request):
                
     return render(request,'main/create-tasks.html')
 
-
-
-
 def tasksPage(request):
     tasks=Task.objects.all()
     return render(request,'main/tasks-page.html',{'tasks': tasks})
@@ -138,7 +187,6 @@ def deleteTask(request, id):
     tasks.delete()
     
     return redirect('/tasksPage/')
-
     
 def contact(request):
     if request.method=="POST":
@@ -153,8 +201,6 @@ def contact(request):
         contact=Contact(name=name, email=email, role=role, workId=workId, subject=subject, message=message, image=image)
         contact.save()
     return render(request,'workers/contact.html')
-
-
 
 #Workers pages
 def workerHome(request):
@@ -177,8 +223,6 @@ def workerWorkers(request):
     workers=Worker.objects.all()
     return render(request, 'workers/worker-workers.html',{'workers': workers})
 
-
-
 def supervisorHome(request):
         supervisortask = SupervisorCreatetask.objects.all()
         supervisorworker = SupervisorCreateworker.objects.all()
@@ -194,8 +238,6 @@ def supervisorHome(request):
         }
         return render(request, 'supervisor/home.html', context)
 
-
-
 def supervisorCreateTaskPage(request):
     if request.method=="POST":
         name=request.POST['name']
@@ -210,7 +252,6 @@ def supervisorCreateTaskPage(request):
         return redirect('/supervisorTasksPage/')    
     
     return render(request,'supervisor/create-task.html')
-
 
 def supervisorEditTaskPage(request,id):
     if request.method=="POST":
@@ -243,8 +284,6 @@ def supervisorTaskPage(request):
     supervisortask=SupervisorCreatetask.objects.all()
     return render(request, 'supervisor/task-page.html',{'supervisortask': supervisortask})
 
-
-
 def supervisorCreateWorkerPage(request):
     if request.method=="POST":
         name=request.POST['name']
@@ -267,7 +306,6 @@ def supervisorCreateWorkerPage(request):
 def supervisorWorkerPage(request):
     supervisorworker=SupervisorCreateworker.objects.all()
     return render(request,'supervisor/worker.html',{'supervisorworker': supervisorworker})
-
 
 def chartPage(request):
     return render(request, 'charts-chartjs.html')
@@ -295,7 +333,6 @@ def MainProfilePage(request):
         'mainProfiles': mainProfiles
     }
     return render(request,'main/profile.html',context)
-
 
 def SupervisorProfileForm(request):
     if request.method=="POST":
@@ -333,8 +370,6 @@ def WorkerProfileForm(request):
         return redirect('/workerHome/') 
     
     return render(request,'workers/profile-form.html')
-
-
 
 def WorkerProfilePage(request):
     workerProfiles=WorkerProfile.objects.all()

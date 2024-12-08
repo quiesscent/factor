@@ -25,12 +25,11 @@ urlpatterns = [
   path("supervisorWorkerPage/",views.supervisorWorkerPage, name="supervisorWorkerPage"),
   path("supervisorCreateWorkerPage/",views.supervisorCreateWorkerPage, name="supervisorCreateWorkerPage"),
   path("SupervisorProfilePage/", views.SupervisorProfilePage, name="SupervisorProfilePage"),
-   path("MainProfilePage/", views.MainProfilePage, name="MainProfilePage"),
-    path("WorkerProfilePage/", views.WorkerProfilePage, name="WorkerProfilePage"),
+  path("MainProfilePage/", views.MainProfilePage, name="MainProfilePage"),
+  path("WorkerProfilePage/", views.WorkerProfilePage, name="WorkerProfilePage"),
   path("MainProfileForm/",views.MainProfileForm, name="MainProfileForm"),
   path("SupervisorProfileForm/",views.SupervisorProfileForm, name="SupervisorProfileForm"),
   path("WorkerProfileForm/",views.WorkerProfileForm, name="WorkerProfileForm"),
   path("chartPage/", views.chartPage, name="chartPage"),
   path("MaininventoryTablePage/", views.MaininventoryTablePage, name="MaininventoryTablePage"),
-  #path("inventoryFormPage/", views.inventoryFormPage, name="inventoryFormPage")
 ]
